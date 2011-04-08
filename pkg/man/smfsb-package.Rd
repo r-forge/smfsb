@@ -19,6 +19,5 @@ Maintainer: Darren Wilkinson <d.j.wilkinson@ncl.ac.uk>
 
 \keyword{package}
 
-}
 
 
