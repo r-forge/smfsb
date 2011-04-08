@@ -1,0 +1,28 @@
+\documentclass [a4paper]{article}
+\usepackage{url}
+\title{smfsb}
+\author{Darren Wilkinson}
+%\VignetteIndexEntry{smfsb}
+\begin{document}
+\maketitle
+
+\section{Overview}
+
+The \verb$smfsb$ package provides all of the R code associated with the book, Wilkinson (2011). The book should therefore be regarded as the main source of documentation regarding the code. However, there should be sufficient documentation here in order to get started with using the software.
+
+\section{Installation}
+
+\section{Accessing documentation}
+
+\section{Using the software}
+
+\section{Accessing the associated data}
+
+
+\section{References}
+
+Wilkinson, D. J. (2011) \emph{Stochastic Modelling for Systems Biology}, second edition, Chapman \& Hall/CRC Press. 
+
+\end{document}
+
+% eof
