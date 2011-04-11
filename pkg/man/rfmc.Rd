@@ -15,6 +15,7 @@ rfmc(n,P,pi0)
 \value{
 An R time series object containing the sampled values from the Markov chain.
 }
+\seealso{\code{\link{rcfmc}}}
 \examples{
 # example for sampling a finite Markov chain
 P=matrix(c(0.9,0.1,0.2,0.8),ncol=2,byrow=TRUE)
