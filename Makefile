@@ -8,8 +8,15 @@ check:
 build:
 	R CMD build pkg
 
+install:
+	R CMD INSTALL pkg
+
+remove:
+	R CMD REMOVE smfsb
+
 clean:
 	rm -rf *~ smfsb_*.tar.gz pkg.Rcheck
+
 
 update:
 	svn update
