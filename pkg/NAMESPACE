@@ -1,1 +1,1 @@
-export(rfmc,rcfmc,imdeath)
+export(rfmc,rcfmc,imdeath,rdiff)

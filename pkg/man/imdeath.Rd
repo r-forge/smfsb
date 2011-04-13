@@ -16,7 +16,7 @@ imdeath(n=20,x0=0,lambda=1,mu=0.1)
 \value{
 An R stepfun object containing the sampled path of the process.
 }
-\seealso{\code{\link{rcfmc}}}
+\seealso{\code{\link{rcfmc}}, \code{\link{rdiff}}}
 \examples{
 plot(imdeath(50))
 }
