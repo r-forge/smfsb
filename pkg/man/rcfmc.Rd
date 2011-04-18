@@ -13,9 +13,9 @@ rcfmc(n,Q,pi0)
   \item{pi0}{A vector representing the probability distribution of the initial state of the Markov chain. If this vector is of length r, then the transition matrix P is assumed to be r x r. The elements of this vector are assumed to be non-negative and sum to one, though in fact, they will be normalised by the sampling procedure.}
 }
 \value{
-An R stepfun object containing the sampled path of the process.
+An R \code{\link{stepfun}} object containing the sampled path of the process.
 }
-\seealso{\code{\link{rfmc}}}
+\seealso{\code{\link{rfmc}},\code{\link{stepfun}}}
 \examples{
 plot(rcfmc(20,matrix(c(-0.5,0.5,1,-1),ncol=2,byrow=TRUE),c(1,0)))
 }

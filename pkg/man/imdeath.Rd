@@ -14,9 +14,9 @@ imdeath(n=20,x0=0,lambda=1,mu=0.1)
   \item{mu}{The rate at which individuals within the population die, independently of all other individuals. Defaults to 0.1.}
 }
 \value{
-An R stepfun object containing the sampled path of the process.
+An R \code{\link{stepfun}} object containing the sampled path of the process.
 }
-\seealso{\code{\link{rcfmc}}, \code{\link{rdiff}}}
+\seealso{\code{\link{rcfmc}}, \code{\link{rdiff}}, \code{\link{stepfun}}}
 \examples{
 plot(imdeath(50))
 }

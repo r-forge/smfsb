@@ -16,9 +16,9 @@ rdiff(afun, bfun, x0 = 0, t = 50, dt = 0.01, ...)
   \item{...}{Additional arguments will be passed into afun and bfun.}
 }
 \value{
-An R ts object containing the sampled path of the process.
+An R \code{\link{ts}} object containing the sampled path of the process.
 }
-\seealso{\code{\link{rcfmc}}}
+\seealso{\code{\link{rcfmc}}, \code{\link{ts}}}
 \examples{
 # example
 # simulate a diffusion approximation to an immigration-death process

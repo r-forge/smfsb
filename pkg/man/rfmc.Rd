@@ -13,9 +13,9 @@ rfmc(n,P,pi0)
   \item{pi0}{A vector representing the probability distribution of the initial state of the Markov chain. If this vector is of length r, then the transition matrix P is assumed to be r x r. The elements of this vector are assumed to be non-negative and sum to one, though in fact, they will be normalised by the sampling procedure.}
 }
 \value{
-An R time series object containing the sampled values from the Markov chain.
+An R \code{\link{ts}} object containing the sampled values from the Markov chain.
 }
-\seealso{\code{\link{rcfmc}}}
+\seealso{\code{\link{rcfmc}}, \code{\link{ts}}}
 \examples{
 # example for sampling a finite Markov chain
 P=matrix(c(0.9,0.1,0.2,0.8),ncol=2,byrow=TRUE)

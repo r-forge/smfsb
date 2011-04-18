@@ -15,9 +15,9 @@ simpleEuler(t=50, dt=0.001, fun, ic, ...)
   \item{...}{Additional arguments will be passed into fun.}
 }
 \value{
-An R ts object containing the sampled path of the model.
+An R \code{\link{ts}} object containing the sampled path of the model.
 }
-\seealso{\code{\link{rdiff}}}
+\seealso{\code{\link{rdiff}}, \code{\link{ts}}}
 \examples{
 # simple Lotka-Volterra example
 lv <- function(t,x,k=c(k1=1,k2=0.1,k3=0.1))
