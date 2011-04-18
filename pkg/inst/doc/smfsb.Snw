@@ -1,6 +1,6 @@
 \documentclass [a4paper]{article}
 \usepackage{url}
-\title{smfsb}
+\title{smfsb - Stochastic Modelling for Systems Biology, second edition}
 \author{Darren Wilkinson}
 %\VignetteIndexEntry{smfsb}
 \begin{document}
@@ -8,16 +8,45 @@
 
 \section{Overview}
 
-The \verb$smfsb$ package provides all of the R code associated with the book, Wilkinson (2011). The book should therefore be regarded as the main source of documentation regarding the code. However, there should be sufficient documentation here in order to get started with using the software.
+The \verb$smfsb$ package provides all of the R code associated with the book, Wilkinson (2011). The book should therefore be regarded as the main source of documentation regarding the code. However, there should be sufficient documentation here in order to get started with using the software. Note that most of this code is intended primarily to be pedagogic. It is not intended to be especially efficient or robust, and therefore is not recommended for "production environments". Almost all of the code is pure R code, intended to be inspected from the R command line. In order to keep the code short, clean and easily understood, there is almost no argument checking or other boilerplate code. This is not a bug, so please don't report it as such. Much of the code is computationally intensive, and would be speeded up by porting to C. Again, I haven't done this in order to keep the code as simple and easy to understand as possible. 
 
 \section{Installation}
 
+At the time of writing, the package is in R-Forge, and can be installed from the R command prompt with
+\begin{verbatim}
+install.packages("smfsb",repos="http://r-forge.r-project.org")
+\end{verbatim}
+from any machine with an internet connection. It is hoped that by the time the book is in print, the package will be available from CRAN, and it should therefore be possible to install using the even simpler
+\begin{verbatim}
+install.packages("smfsb")
+\end{verbatim}
+The package can be loaded ready for use with
+\begin{verbatim}
+library(smfsb)
+\end{verbatim}
+
 \section{Accessing documentation}
 
-\section{Using the software}
-
-\section{Accessing the associated data}
-
+I have tried to ensure that the package and all associated functions and datasets are properly documented with runnable examples. So,
+\begin{verbatim}
+help(package="smfsb")
+\end{verbatim}
+will give a brief overview of the package and a complete list of all functions. The list of vignettes associated with the package can be obtained with
+\begin{verbatim}
+vignette(package="smfsb")
+\end{verbatim}
+At the time of writing, \emph{this} vignette is the only one available, and can be accessed from the R command line with
+\begin{verbatim}
+vignette("smfsb",package="smfsb")
+\end{verbatim}
+Help on functions can be obtained using the usual R mechanisms. For example, help on the function \verb$gillespied$ can be obtained with
+\begin{verbatim}
+?gillespied
+\end{verbatim}
+and the associated example can be run with
+\begin{verbatim}
+example(gillespied)
+\end{verbatim}
 
 \section{References}
 
