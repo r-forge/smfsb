@@ -1,0 +1,7 @@
+"Name" "Shoe size" "Height"
+"Fred" 9 170
+"Jim" 10 180
+"Bill" 9 185
+"Jane" 7 175
+"Jill" 6 170
+"Janet" 8 180

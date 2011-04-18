@@ -47,6 +47,23 @@ and the associated example can be run with
 \begin{verbatim}
 example(gillespied)
 \end{verbatim}
+A list of demos associated with the package can be obtained with
+\begin{verbatim}
+demo(package="smfsb")
+\end{verbatim}
+A list of data sets associated with the package can be obtained with
+\begin{verbatim}
+data(package="smfsb")
+\end{verbatim}
+For example, the small table, \verb$mytable$ from the introduction to R in Chapter 2 can by loaded with
+\begin{verbatim}
+data(mytable)
+\end{verbatim}
+After running this command, the data frame \verb$mytable$ will be accessible, and can be examined by typing
+\begin{verbatim}
+mytable
+\end{verbatim}
+at the R command prompt.
 
 \section{References}
 
