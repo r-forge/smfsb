@@ -55,7 +55,7 @@ A list of data sets associated with the package can be obtained with
 \begin{verbatim}
 data(package="smfsb")
 \end{verbatim}
-For example, the small table, \verb$mytable$ from the introduction to R in Chapter 2 can by loaded with
+For example, the small table, \verb$mytable$ from the introduction to R in Chapter 4 can by loaded with
 \begin{verbatim}
 data(mytable)
 \end{verbatim}

@@ -1,1 +1,1 @@
-export(rfmc,rcfmc,imdeath,rdiff,simpleEuler,gillespie,discretise,gillespied)
+export(rfmc,rcfmc,imdeath,rdiff,simpleEuler,gillespie,discretise,gillespied,StepGillespie,simTs,simSample,simTimes)

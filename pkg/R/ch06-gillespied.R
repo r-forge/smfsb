@@ -9,7 +9,7 @@ gillespied=function (N, T=100, dt=1, ...)
         S=t(N$Post-N$Pre)
         u=nrow(S)
         v=ncol(S)
-        xmat=matrix(0,ncol=u,nrow=n)
+        xmat=matrix(ncol=u,nrow=n)
 	i=1
 	target=0
 	repeat {

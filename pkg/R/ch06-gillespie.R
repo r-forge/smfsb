@@ -9,7 +9,7 @@ gillespie=function (N, n, ...)
         u=nrow(S)
         v=ncol(S)
         tvec=vector("numeric",n)
-        xmat=matrix(0,ncol=u,nrow=n+1)
+        xmat=matrix(ncol=u,nrow=n+1)
         xmat[1,]=x
         for (i in 1:n) {
                 h=N$h(tt,x, ...)
@@ -27,7 +27,7 @@ discretise=function(out,dt=1,start=0)
         events=length(out$t)
         end=out$t[events]
         len=(end-start)%/%dt+1
-        x=matrix(0,nrow=len,ncol=ncol(out$x))
+        x=matrix(nrow=len,ncol=ncol(out$x))
         target=0
         j=1
         for (i in 1:events) {
