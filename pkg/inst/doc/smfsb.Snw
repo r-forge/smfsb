@@ -39,13 +39,13 @@ At the time of writing, \emph{this} vignette is the only one available, and can 
 \begin{verbatim}
 vignette("smfsb",package="smfsb")
 \end{verbatim}
-Help on functions can be obtained using the usual R mechanisms. For example, help on the function \verb$gillespied$ can be obtained with
+Help on functions can be obtained using the usual R mechanisms. For example, help on the function \verb$StepGillespie$ can be obtained with
 \begin{verbatim}
-?gillespied
+?StepGillespie
 \end{verbatim}
 and the associated example can be run with
 \begin{verbatim}
-example(gillespied)
+example(StepGillespie)
 \end{verbatim}
 A list of demos associated with the package can be obtained with
 \begin{verbatim}
