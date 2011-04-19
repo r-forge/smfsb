@@ -64,7 +64,7 @@ simSample=function(n=100,t0=0,x0,deltat,stepFun,...)
 	u=length(x0)
 	names=names(x0)
 	mat=matrix(nrow=n,ncol=u)
-	for (i in 1:N) {
+	for (i in 1:n) {
 		mat[i,]=stepFun(t0,x0,deltat,...)
 	}
 	colnames(mat)=names
