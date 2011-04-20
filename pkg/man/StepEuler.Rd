@@ -31,7 +31,7 @@ stepLV=StepEuler(LVrhs)
 print(stepLV(0,c(x1=50,x2=100),1))
 
 # integrate the process and plot it
-out=simTs(0,c(x1=50,x2=100),100,1,stepLV)
+out=simTs(0,c(x1=50,x2=100),20,0.1,stepLV)
 plot(out,plot.type="single",lty=1:2)
 }
 
