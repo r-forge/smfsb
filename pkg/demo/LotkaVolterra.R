@@ -14,9 +14,10 @@ samples=20
 
 # number of repeats for computing the mean
 repeats=200
+#repeats=20
 
 # end point of simulation
-endpoint=50
+endpoint=30
 
 message(paste("Plotting",samples,"individual trajectories"))
 stepLV=StepGillespie(LV)
@@ -40,10 +41,24 @@ cum=cum/repeats
 dimnames(cum)[[2]]=names
 lines(cum[,2],lwd=2)
 
-message("Overlaying the deterministic solution as a dashed line")
+message(paste("Computing the mean of",repeats,"CLE trajectories to overlay as a dashed line"))
+stepLVCLE=StepGillespie(LV)
+cum=simTs(0,c(x1=50,x2=100),endpoint,0.1,stepLVCLE)
+names=dimnames(cum)[[2]]
+for (i in 2:repeats) {
+	out=simTs(0,c(x1=50,x2=100),endpoint,0.1,stepLVCLE)
+	cum=cum+out
+	message(".",appendLF=FALSE)
+}
+message("")
+cum=cum/repeats
+dimnames(cum)[[2]]=names
+lines(cum[,2],lty=2,lwd=2)
+
+message("Overlaying the deterministic solution as a dotted line")
 stepLVEuler=StepEulerSPN(LV,dt=0.0001)
 out=simTs(0,c(x1=50,x2=100),endpoint,0.1,stepLVEuler)
-lines(out[,2],lty=2,lwd=2)
+lines(out[,2],lty=3,lwd=2)
 
 
 
