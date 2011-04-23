@@ -23,7 +23,7 @@ void stepLV(double *t0p,int *x,double *dtp,double *c)
     u=unif_rand();
     if (u<h1/h0)
       x[0]+=1;
-    else if (u<(h1+h1)/h0) {
+    else if (u<(h1+h2)/h0) {
       x[0]-=1; x[1]+=1;
     } else
       x[1]-=1;

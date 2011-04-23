@@ -41,6 +41,19 @@ cum=cum/repeats
 dimnames(cum)[[2]]=names
 lines(cum[,2],lwd=2)
 
+message(paste("Computing the mean of",repeats,"trajectories to overlay using C function"))
+cum=simTs(0,c(x1=50,x2=100),endpoint,0.1,stepLVc)
+names=dimnames(cum)[[2]]
+for (i in 2:repeats) {
+	out=simTs(0,c(x1=50,x2=100),endpoint,0.1,stepLVc)
+	cum=cum+out
+	message(".",appendLF=FALSE)
+}
+message("")
+cum=cum/repeats
+dimnames(cum)[[2]]=names
+lines(cum[,2],lwd=2,col=2)
+
 message(paste("Computing the mean of",repeats,"CLE trajectories to overlay as a dashed line"))
 stepLVCLE=StepGillespie(LV)
 cum=simTs(0,c(x1=50,x2=100),endpoint,0.1,stepLVCLE)
