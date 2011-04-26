@@ -12,7 +12,7 @@ void stepLV(double *t0p,int *x,double *dtp,double *c)
   while (1==1) {
     h1=c[0]*x[0]; h2=c[1]*x[0]*x[1]; h3=c[2]*x[1];
     h0=h1+h2+h3;
-    if (h0<1e-10)
+    if ((h0<1e-10)||(x[0]>=1000000))
       t=1e99;
     else
       t+=rexp(1.0/h0);

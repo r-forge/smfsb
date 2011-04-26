@@ -13,6 +13,10 @@ StepGillespie=function(N)
 				h0=sum(h)
 		                if (h0<1e-10)
                			        tt=1e99
+				else if (h0>1e6) {
+					tt=1e99
+					warning("Hazard too big - terminating simulation!")
+				}
                 		else
                         		tt=tt+rexp(1,h0)
 				if (tt>=termt)
