@@ -13,7 +13,7 @@ StepEuler(RHSfun,dt=0.01)
 }
 \value{
 An R function which can be used to advance the state of the ODE model \code{RHSfun} by using an Euler method with step size \code{dt}. The function closure has interface \code{function(t0,x0,deltat,...)}, where \code{t0} and \code{x0} represent the initial time and state, and \code{deltat} represents the amount of time by which the process should be advanced. The function closure returns a vector representing the simulated state of the system at the new time.}
-\seealso{\code{\link{StepEulerSPN}}, \code{\link{simpleEuler}}, \code{\link{simTs}}, \code{\link{simSample}}}
+\seealso{\code{\link{StepEulerSPN}}, \code{\link{StepODE}}, \code{\link{simTs}}, \code{\link{simSample}}}
 \examples{
 # Build a RHS for the Lotka-Volterra system
 LVrhs <- function(t,x,th=c(c1=1,c2=0.005,c3=0.6))
