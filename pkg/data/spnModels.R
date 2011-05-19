@@ -36,10 +36,9 @@ BD$h=function(t,x,th=c(lambda=1,mu=1.1))
 Dimer=list()
 Dimer$Pre=matrix(c(2,0,0,1),ncol=2,byrow=TRUE)
 Dimer$Post=matrix(c(0,1,2,0),ncol=2,byrow=TRUE)
-Dimer$h=function(x,th=c(th1=1.66e-3,th2=0.2)) {
+Dimer$h=function(t,x,th=c(th1=1.66e-3,th2=0.2)) {
  with(as.list(c(x,th)),{
-        return( c( th[1]*x[1]*(x[1]-1)/2 ,
-                th[2]*x[2] ) )
+        return(c(th1*x1*(x1-1)/2, th2*x2))
 	})	
     }
 
