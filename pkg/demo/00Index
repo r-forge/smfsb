@@ -1,2 +1,3 @@
-rfmcDemo            Demo of simulating a Markov chain with rfmc
-LotkaVolterra       Comparing stochastic and deterministic simulations of the Lotka-Volterra predator prey system
+rfmcDemo             Demo of simulating a Markov chain with rfmc
+LotkaVolterra        Comparing stochastic and deterministic simulations of the Lotka-Volterra predator prey system
+DimerisationKinetics Studying stochastic dimerisation kinetics, from Chapter 7
