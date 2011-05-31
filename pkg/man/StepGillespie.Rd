@@ -8,10 +8,10 @@ This function creates a function for advancing the state of an SPN model using t
 StepGillespie(N)
 }
 \arguments{
-  \item{N}{An R list with named components representing a stochastic Petri net. Should contain \code{N$Pre}, a matrix representing the LHS stoichiometries, \code{N$Post}, a matrix representing the RHS stoichiometries, and \code{N$h}, a function representing the rates of the reaction processes. \code{N$h} should have first argument \code{t}, a scalar representing the current simulation time (in the typical time-homogeneous case, \code{N$h} will ignore this argument), second argument \code{x}, a vector representing the current state of the system. \code{N$h} may posses additional arguments, representing reaction rates, for example. \code{N} does not need to contain an initial marking, \code{N$M}. \code{N$M} will be ignored by most functions which use the resulting function closure.}
+  \item{N}{An R list with named components representing a stochastic Petri net. Should contain \code{N$Pre}, a matrix representing the LHS stoichiometries, \code{N$Post}, a matrix representing the RHS stoichiometries, and \code{N$h}, a function representing the rates of the reaction processes. \code{N$h} should have second argument \code{t}, a scalar representing the current simulation time (in the typical time-homogeneous case, \code{N$h} will ignore this argument), first argument \code{x}, a vector representing the current state of the system. \code{N$h} may posses additional arguments, representing reaction rates, for example. \code{N} does not need to contain an initial marking, \code{N$M}. \code{N$M} will be ignored by most functions which use the resulting function closure.}
 }
 \value{
-An R function which can be used to advance the state of the SPN model \code{N} by using the Gillespie algorithm. The function closure has interface \code{function(x0,t0,delat,...)}, where \code{x0} and \code{t0} represent the initial state and time, and \code{deltat} represents the amount of time by which the process should be advanced. The function closure returns a vector representing the simulated state of the system at the new time.}
+An R function which can be used to advance the state of the SPN model \code{N} by using the Gillespie algorithm. The function closure has interface \code{function(x0,t0,deltat,...)}, where \code{x0} and \code{t0} represent the initial state and time, and \code{deltat} represents the amount of time by which the process should be advanced. The function closure returns a vector representing the simulated state of the system at the new time.}
 \seealso{\code{\link{StepEulerSPN}}, \code{\link{gillespied}}, \code{\link{simTs}}, \code{\link{simSample}}}
 \examples{
 # example
@@ -19,7 +19,7 @@ An R function which can be used to advance the state of the SPN model \code{N} b
 N=list()
 N$Pre=matrix(c(1,0,1,1,0,1),ncol=2,byrow=TRUE)
 N$Post=matrix(c(2,0,0,2,0,0),ncol=2,byrow=TRUE)
-N$h=function(t,x,th=c(th1=1,th2=0.005,th3=0.6))
+N$h=function(x,t,th=c(th1=1,th2=0.005,th3=0.6))
 {
  with(as.list(c(x,th)),{
          return(c(th1*x1, th2*x1*x2, th3*x2 ))
@@ -27,22 +27,22 @@ N$h=function(t,x,th=c(th1=1,th2=0.005,th3=0.6))
 }
 
 # create a stepping function
-stepLV=StepGillespie(N)
+stepLV = StepGillespie(N)
 
 # step the function
-print(stepLV(0,c(x1=50,x2=100),1))
+print(stepLV(c(x1=50,x2=100),0,1))
 
 # simulate a realisation of the process and plot it
-out=simTs(0,c(x1=50,x2=100),100,0.1,stepLV)
+out = simTs(c(x1=50,x2=100),0,100,0.1,stepLV)
 plot(out)
 plot(out,plot.type="single",lty=1:2)
 
 # simulate a realisation using simTimes
-times=seq(0,100,by=0.1)
-plot(ts(simTimes(0,c(x1=50,x2=100),times,stepLV),start=0,deltat=0.1),plot.type="single",lty=1:2)
+times = seq(0,100,by=0.1)
+plot(ts(simTimes(c(x1=50,x2=100),0,times,stepLV),start=0,deltat=0.1),plot.type="single",lty=1:2)
 # simulate a realisation at irregular times
-times=c(0,10,20,50,100)
-out2=simTimes(0,c(x1=50,x2=100),times,stepLV)
+times = c(0,10,20,50,100)
+out2 = simTimes(c(x1=50,x2=100),0,times,stepLV)
 print(out2)
 
 }

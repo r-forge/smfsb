@@ -1,19 +1,21 @@
 # function
 
-StepPTS=function(N,dt=0.01)
+StepPTS <- function(N,dt=0.01)
 {
-        S=t(N$Post-N$Pre)
-	v=ncol(S)
+        S = t(N$Post-N$Pre)
+	v = ncol(S)
 	return(
-		function(tt,x,deltat,...)
+		function(x0,t0,deltat,...)
 		{
-			termt=tt+deltat
+			x = x0
+			t = t0
+			termt = t0+deltat
 	        	repeat {
-       	       			h=N$h(tt,x,...)
-				r=rpois(v,h*dt)
-       	         		x=x+as.vector(S %*% r)
-				tt=tt+dt
-				if (tt > termt)
+       	       			h = N$h(x, t, ...)
+				r = rpois(v,h*dt)
+       	         		x = x+as.vector(S %*% r)
+				t = t+dt
+				if (t > termt)
 					return(x)
 	       	 	}
 		}

@@ -1,7 +1,7 @@
 
 # function
 
-rdiff<-function ( afun, bfun, x0 = 0, t = 50, dt = 0.01, ...)
+rdiff <- function(afun, bfun, x0 = 0, t = 50, dt = 0.01, ...)
 {
             n <- t/dt
             xvec <- vector("numeric", n)

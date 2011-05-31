@@ -13,7 +13,7 @@ This package contains code and data for modelling and simulation of stochastic k
 }
 
 \author{
-Maintainer: Darren Wilkinson <d.j.wilkinson@ncl.ac.uk>
+Maintainer: Darren Wilkinson <darren.wilkinson@ncl.ac.uk>
 }
 \references{See \url{http://www.staff.ncl.ac.uk/d.j.wilkinson/smfsb/2e/}}
 

@@ -1,17 +1,19 @@
 # function
 
-StepEulerSPN=function(N,dt=0.01)
+StepEulerSPN <- function(N,dt=0.01)
 {
-        S=t(N$Post-N$Pre)
+        S = t(N$Post-N$Pre)
 	return(
-		function(tt,x,deltat,...)
+		function(x0, t0, deltat,...)
 		{
-			termt=tt+deltat
+			x = x0
+			t = t0
+			termt = t0+deltat
 	        	repeat {
-       	       			h=N$h(tt,x,...)
-       	         		x=x+as.vector(S %*% h)*dt
-				tt=tt+dt
-				if (tt > termt)
+       	       			h = N$h(x,t,...)
+       	         		x = x+as.vector(S %*% h)*dt
+				t = t+dt
+				if (t > termt)
 					return(x)
 	       	 	}
 		}

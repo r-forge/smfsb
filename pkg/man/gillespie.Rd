@@ -32,8 +32,8 @@ N$h=function(t,x,th=c(th1=1,th2=0.005,th3=0.6))
 }
 
 # simulate a realisation of the process and plot it
-out=gillespie(N,10000)
-op=par(mfrow=c(2,2))
+out = gillespie(N,10000)
+op = par(mfrow=c(2,2))
 plot(stepfun(out$t,out$x[,1]),pch="")
 plot(stepfun(out$t,out$x[,2]),pch="")
 plot(out$x,type="l")

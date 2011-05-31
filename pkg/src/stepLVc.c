@@ -4,7 +4,7 @@
 #include <R.h>
 #include <Rmath.h>
 
-void stepLV(double *t0p,int *x,double *dtp,double *c)
+void stepLV(int *x,double *t0p,double *dtp,double *c)
 {
   double t=*t0p, dt=*dtp, termt=t+dt;
   GetRNGstate();

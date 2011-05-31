@@ -5,7 +5,7 @@ require(smfsb)
 
 theta=c(lambda=2,alpha=1,mu=0.1,sigma=0.2)
 
-myDrift <- function(t,x,th=theta)
+myDrift <- function(x,t,th=theta)
      {
              with(as.list(c(x,th)),{
                      c( lambda - x*y ,
@@ -13,7 +13,7 @@ myDrift <- function(t,x,th=theta)
              })
      }
 
-myDiffusion <- function(t,x,th=theta)
+myDiffusion <- function(x,t,th=theta)
      {
              with(as.list(c(x,th)),{
                      matrix(c( sqrt(lambda + x*y) , 0,
@@ -21,7 +21,7 @@ myDiffusion <- function(t,x,th=theta)
              })
      }
 
-diffusionE <- function(t,x,th=theta)
+diffusionE <- function(x,t,th=theta)
      {
              with(as.list(c(x,th)),{
                      matrix(c( 0 , 0,
@@ -29,7 +29,7 @@ diffusionE <- function(t,x,th=theta)
              })
      }
 
-diffusionI <- function(t,x,th=theta)
+diffusionI <- function(x,t,th=theta)
      {
              with(as.list(c(x,th)),{
                      matrix(c( sqrt(lambda + x*y) , 0,
@@ -44,7 +44,7 @@ stepProcE=StepSDE(myDrift,diffusionE,dt=dt)
 stepProcI=StepSDE(myDrift,diffusionI,dt=dt)
 stepProcIE=StepSDE(myDrift,myDiffusion,dt=dt)
 for (stepFun in c(stepProc,stepProcE,stepProcI,stepProcIE)) {
-	out=simTs(0,c(x=1,y=0.1),30,0.01,stepFun)
+	out=simTs(c(x=1,y=0.1),0,30,0.01,stepFun)
 	plot(out[,1],ylim=c(0,30),ylab="x(t)",lwd=2)
 	}
 par(op)

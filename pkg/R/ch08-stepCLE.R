@@ -1,21 +1,23 @@
 # function
 
-StepCLE=function(N,dt=0.01)
+StepCLE <- function(N,dt=0.01)
 {
-        S=t(N$Post-N$Pre)
-	v=ncol(S)
-	sdt=sqrt(dt)
+        S = t(N$Post-N$Pre)
+	v = ncol(S)
+	sdt = sqrt(dt)
 	return(
-		function(tt,x,deltat,...)
+		function(x0, t0, deltat,...)
 		{
-			termt=tt+deltat
+			x = x0
+			t = t0
+			termt = t0+deltat
 	        	repeat {
-       	       			h=N$h(tt,x,...)
-				dw=rnorm(v,0,sdt)
-				dx=S %*% (h*dt + sqrt(h)*dw)
-       	         		x=x+as.vector(dx)
-				tt=tt+dt
-				if (tt > termt)
+       	       			h = N$h(x, t, ...)
+				dw = rnorm(v,0,sdt)
+				dx = S %*% (h*dt + sqrt(h)*dw)
+       	         		x = x+as.vector(dx)
+				t = t+dt
+				if (t > termt)
 					return(x)
 	       	 	}
 		}

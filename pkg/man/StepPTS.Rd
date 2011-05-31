@@ -19,7 +19,7 @@ An R function which can be used to advance the state of the SPN model \code{N} b
 N=list()
 N$Pre=matrix(c(1,0,1,1,0,1),ncol=2,byrow=TRUE)
 N$Post=matrix(c(2,0,0,2,0,0),ncol=2,byrow=TRUE)
-N$h=function(t,x,th=c(th1=1,th2=0.005,th3=0.6))
+N$h=function(x,t,th=c(th1=1,th2=0.005,th3=0.6))
 {
  with(as.list(c(x,th)),{
          return(c(th1*x1, th2*x1*x2, th3*x2 ))
@@ -30,10 +30,10 @@ N$h=function(t,x,th=c(th1=1,th2=0.005,th3=0.6))
 stepLV=StepPTS(N)
 
 # step the function
-print(stepLV(0,c(x1=50,x2=100),1))
+print(stepLV(c(x1=50,x2=100),0,1))
 
 # integrate the process and plot it
-out=simTs(0,c(x1=50,x2=100),20,0.1,stepLV)
+out = simTs(c(x1=50,x2=100),0,20,0.1,stepLV)
 plot(out)
 plot(out,plot.type="single",lty=1:2)
 }

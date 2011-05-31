@@ -1,15 +1,17 @@
 # function
 
-StepEuler=function(RHSfun,dt=0.01)
+StepEuler <- function(RHSfun,dt=0.01)
 {
 	return(
-		function(tt,x,deltat,...)
+		function(x0, t0, deltat,...)
 		{
-			termt=tt+deltat
+			x = x0
+			t = t0
+			termt = t0+deltat
 	        	repeat {
-       	         		x=x+RHSfun(tt,x,...)*dt
-				tt=tt+dt
-				if (tt > termt)
+       	         		x = x+RHSfun(x, t, ...)*dt
+				t = t+dt
+				if (t > termt)
 					return(x)
 	       	 	}
 		}

@@ -3,14 +3,16 @@
 StepSDE <- function (drift, diffusion, dt = 0.01) 
 {
     sdt = sqrt(dt)
-    return(function(tt, x, deltat, ...) {
-        termt = tt + deltat
+    return(function(x0, t0, deltat, ...) {
+	x = x0
+	t = t0
+        termt = t0 + deltat
 	v = length(x)
         repeat {
 	    dw = rnorm(v,0,sdt)
-            x = x + drift(tt, x, ...)*dt + as.vector(diffusion(tt,x,...)%*%dw)
-            tt = tt + dt
-            if (tt > termt)
+            x = x + drift(x, t, ...)*dt + as.vector(diffusion(x, t,...)%*%dw)
+            t = t + dt
+            if (t > termt)
 		return(x)
         }
     })

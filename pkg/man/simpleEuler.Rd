@@ -31,9 +31,9 @@ plot(simpleEuler(t=100,fun=lv,ic=c(x1=4,x2=10)),plot.type="single",lty=1:2)
 
 # now an example which instead uses deSolve...
 require(deSolve)
-times=seq(0,50,by=0.01)
-k=c(k1=1,k2=0.1,k3=0.1)
-lvlist=function(t,x,k)
+times = seq(0,50,by=0.01)
+k = c(k1=1,k2=0.1,k3=0.1)
+lvlist = function(t,x,k)
         list(lv(t,x,k))
 plot(ode(y=c(x1=4,x2=10),times=times,func=lvlist,parms=k))
 
