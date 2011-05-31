@@ -10,7 +10,7 @@ simpleEuler <- function(t=50, dt=0.001, fun, ic, ...)
         xmat[1,] = x
         for (i in 2:n) {
 		t = t + dt
-                x = x + fun(t,x,...) * dt
+                x = x + fun(x,t,...) * dt
                 xmat[i,] = x
         }
         ts(xmat, start=0, deltat=dt)

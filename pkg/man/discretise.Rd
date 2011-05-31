@@ -24,7 +24,7 @@ N=list()
 N$M=c(x1=50,x2=100)
 N$Pre=matrix(c(1,0,1,1,0,1),ncol=2,byrow=TRUE)
 N$Post=matrix(c(2,0,0,2,0,0),ncol=2,byrow=TRUE)
-N$h=function(t,x,th=c(th1=1,th2=0.005,th3=0.6))
+N$h=function(x,t,th=c(th1=1,th2=0.005,th3=0.6))
 {
  with(as.list(c(x,th)),{
          return(c(th1*x1, th2*x1*x2, th3*x2 ))

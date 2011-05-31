@@ -12,7 +12,7 @@ gillespie <- function(N, n, ...)
         xmat = matrix(ncol=u,nrow=n+1)
         xmat[1,] = x
         for (i in 1:n) {
-                h = N$h(tt,x, ...)
+                h = N$h(x,tt, ...)
                 tt = tt+rexp(1,sum(h))
                 j = sample(v,1,prob=h)
                 x = x+S[,j]

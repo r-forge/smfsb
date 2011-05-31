@@ -13,7 +13,7 @@ gillespied <- function (N, T=100, dt=1, ...)
 	i = 1
 	target = 0
 	repeat {
-                h = N$h(tt,x, ...)
+                h = N$h(x, tt, ...)
 		h0 = sum(h)
 		if (h0 < 1e-10)
 			tt = 1e99
