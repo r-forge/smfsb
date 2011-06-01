@@ -4,7 +4,7 @@ Title: SMfSB 2e: Stochastic modelling for systems biology, 2nd edition
 Version: 0.1.1
 Date: 2011-04-07
 Author: Darren Wilkinson
-Maintainer: Darren Wilkinson <d.j.wilkinson@ncl.ac.uk>
+Maintainer: Darren Wilkinson <darren.wilkinson@ncl.ac.uk>
 Description: This package contains code and data for modelling and simulation of stochastic kinetic biochemical network models. It contains the code and data associated with the second edition of the book Stochastic Modelling for Systems Biology, to be published by Chapman & Hall/CRC Press late 2011.
 License: LGPL-3
 Depends: R (>= 2.9.0)
