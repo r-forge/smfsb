@@ -15,8 +15,8 @@ simTimes(x0,t0=0,times,stepFun,...)
   \item{...}{Additional arguments will be passed to \code{stepFun}.}
 }
 \value{
-An R matrix where each row represents the state of the process at one of the required times.}
-\seealso{\code{\link{StepEulerSPN}}, \code{\link{StepGillespie}}, \code{\link{simTs}}, \code{\link{simSample}}}
+An R matrix where each row represents the state of the process at one of the required times. The row names contain the sampled times.}
+\seealso{\code{\link{StepEulerSPN}}, \code{\link{StepGillespie}}, \code{\link{simTs}}, \code{\link{simSample}}, \code{\link{as.timedData}}}
 \examples{
 # example
 # Build a SPN for the Lotka-Volterra system

@@ -17,7 +17,7 @@ simTs(x0,t0=0,tt=100,dt=0.1,stepFun,...)
 }
 \value{
 An R \code{\link{ts}} object representing the simulated process.}
-\seealso{\code{\link{StepEulerSPN}}, \code{\link{StepGillespie}}, \code{\link{simTimes}}, \code{\link{simSample}}}
+\seealso{\code{\link{StepEulerSPN}}, \code{\link{StepGillespie}}, \code{\link{simTimes}}, \code{\link{simSample}}, \code{\link{as.timedData}}}
 \examples{
 # example
 # Build a SPN for the Lotka-Volterra system
