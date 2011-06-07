@@ -20,11 +20,6 @@ metrop<-function (n, alpha)
 
 # example
 
-normvec=metrop(10000,1)
-op=par(mfrow=c(2,1))
-plot(ts(normvec))
-hist(normvec,30)
-par(op)
 
 
 # end

@@ -21,20 +21,6 @@ normgibbs<-function (N, n, a, b, cc, d, xbar, ssquared)
 
 # example
 
-postmat=normgibbs(N=11000,n=15,a=3,b=11,cc=10,d=1/100,xbar=25,ssquared=20)
-postmat=postmat[1001:11000,]
-op=par(mfrow=c(3,3))
-plot(postmat,col=1:10000)
-plot(postmat,type="l")
-plot.new()
-plot(ts(postmat[,1]))
-plot(ts(postmat[,2]))
-plot(ts(sqrt(1/postmat[,2])))
-hist(postmat[,1],40)
-hist(postmat[,2],40)
-hist(sqrt(1/postmat[,2]),40)
-par(op)
-
 
 
 # eof

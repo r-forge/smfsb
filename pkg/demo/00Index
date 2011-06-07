@@ -2,3 +2,5 @@ LotkaVolterra        Comparing stochastic and deterministic simulations of the L
 DimerisationKinetics Studying stochastic dimerisation kinetics, from Chapter 7
 ExtrinsicNoise       Diffusion approximation to immigration-death process with death rate modelled by a CIR process
 PMCMC                Demo of PMCMC-based parameter inference for the Lotka-Volterra model
+Metropolis           Simple Metropolis sampler with different tuning parameter settings
+
