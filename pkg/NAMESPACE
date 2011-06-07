@@ -1,2 +1,2 @@
-export(rfmc,rcfmc,imdeath,rdiff,simpleEuler,gillespie,discretise,gillespied,StepGillespie,simTs,simSample,simTimes,StepEulerSPN,StepCLE,StepPTS,StepFRM,StepEuler,stepLVc,StepODE,StepSDE,as.timedData,pfMLLik)
+export(rfmc,rcfmc,imdeath,rdiff,simpleEuler,gillespie,discretise,gillespied,StepGillespie,simTs,simSample,simTimes,StepEulerSPN,StepCLE,StepPTS,StepFRM,StepEuler,stepLVc,StepODE,StepSDE,as.timedData,pfMLLik,normgibbs,metrop)
 useDynLib(smfsb,stepLV)
