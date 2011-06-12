@@ -1,19 +1,13 @@
 # PMCMC.R
 
+# make sure the package is loaded
 require(smfsb)
 
-noiseSD=10
+# load the reference data
+data(LVdata)
 
-# first simulate some data
-truth=simTs(c(x1=50,x2=100),0,20,2,stepLVc)
-message("True states")
-print(truth)
-data2=truth+rnorm(prod(dim(truth)),0,noiseSD)
-data2=as.timedData(data2)
-data1=as.matrix(data2[,1])
-colnames(data1)="x1"
-message("Simulated data")
-print(data2)
+# assume know measurement SD of 10
+noiseSD=10
 
 # now define the data likelihood functions
 data1Lik <- function(x,t,y,log=TRUE,...)
@@ -40,18 +34,22 @@ simx0 <- function(N,t0,...)
 	mat
 }
 
+LVdata=as.timedData(LVnoise10)
+LVpreyData=as.timedData(LVpreyNoise10)
+colnames(LVpreyData)=c("x1")
+
 # create marginal log-likelihood functions, based on a particle filter
-mLLik1=pfMLLik(100,simx0,0,stepLVc,data1Lik,data1)
-mLLik2=pfMLLik(100,simx0,0,stepLVc,data2Lik,data2)
+mLLik1=pfMLLik(100,simx0,0,stepLVc,data1Lik,LVpreyData)
+mLLik2=pfMLLik(100,simx0,0,stepLVc,data2Lik,LVdata)
 
 # Now create an MCMC algorithm...
-iters=100
+iters=1000
 tune=0.01
 thin=10
 th=c(th1 = 1, th2 = 0.005, th3 = 0.6)
 
 p=length(th)
-ll=-1-99
+ll=-1e99
 thmat=matrix(0,nrow=iters,ncol=p)
 colnames(thmat)=names(th)
 for (i in 1:iters) {
@@ -77,7 +75,7 @@ mcmcsummaries <- function(mat,plot=TRUE)
     print(summary(mat))
     message("Standard deviations:")
     print(apply(mat,2,sd))
-    op=par(mfrow=c(p,3))
+    op=par(mfrow=c(4,3))
     names=colnames(mat)
     for (i in 1:p) {
       plot(ts(mat[,i]),main=names[i])
