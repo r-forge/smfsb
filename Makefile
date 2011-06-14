@@ -3,6 +3,10 @@
 
 VERSION=0.2
 
+DEFAULT:
+	make check
+	make install
+
 check:
 	R CMD check pkg
 

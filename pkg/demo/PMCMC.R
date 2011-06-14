@@ -43,7 +43,7 @@ mLLik1=pfMLLik(100,simx0,0,stepLVc,data1Lik,LVpreyData)
 mLLik2=pfMLLik(100,simx0,0,stepLVc,data2Lik,LVdata)
 
 # Now create an MCMC algorithm...
-iters=1000
+iters=100
 tune=0.01
 thin=10
 th=c(th1 = 1, th2 = 0.005, th3 = 0.6)
