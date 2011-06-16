@@ -26,6 +26,15 @@ data2Lik <- function(x,t,y,log=TRUE,...)
 		return(exp(ll))
 }
 
+data3Lik <- function(x,t,y,log=TRUE,...)
+{
+	ll=sum(dnorm(y,x,th["sd"],log=TRUE))
+	if (log)
+		return(ll)
+	else
+		return(exp(ll))
+}
+
 # now define a sampler for the prior on the initial state
 simx0 <- function(N,t0,...)
 {
@@ -41,12 +50,14 @@ colnames(LVpreyData)=c("x1")
 # create marginal log-likelihood functions, based on a particle filter
 mLLik1=pfMLLik(100,simx0,0,stepLVc,data1Lik,LVpreyData)
 mLLik2=pfMLLik(100,simx0,0,stepLVc,data2Lik,LVdata)
+mLLik3=pfMLLik(100,simx0,0,stepLVc,data3Lik,LVdata)
 
 # Now create an MCMC algorithm...
-iters=100
+iters=1000
 tune=0.01
 thin=10
-th=c(th1 = 1, th2 = 0.005, th3 = 0.6)
+#th=c(th1 = 1, th2 = 0.005, th3 = 0.6)
+th=c(th1 = 1, th2 = 0.005, th3 = 0.6, sd=10)
 
 p=length(th)
 ll=-1e99
@@ -56,7 +67,7 @@ for (i in 1:iters) {
 	message(paste(i,""),appendLF=FALSE)
 	for (j in 1:thin) {
 		thprop=th*exp(rnorm(p,0,tune))
-		llprop=mLLik1(thprop)
+		llprop=mLLik3(thprop)
 		if (log(runif(1)) < llprop - ll) {
 			th=thprop
 			ll=llprop
@@ -66,26 +77,12 @@ for (i in 1:iters) {
 	}
 message("Done!")
 
-# plot the results
-mcmcsummaries <- function(mat,plot=TRUE)
-  {
-    d=dim(mat)
-    p=d[2]
-    message(paste("N =",d[1],"iterations"))
-    print(summary(mat))
-    message("Standard deviations:")
-    print(apply(mat,2,sd))
-    op=par(mfrow=c(4,3))
-    names=colnames(mat)
-    for (i in 1:p) {
-      plot(ts(mat[,i]),main=names[i])
-      acf(mat[,i],lag.max=100,main=names[i])
-      hist(mat[,i],30,main=names[i])
-    }
-    par(op)
-  }
+# Dump MCMC output matrix to disk
+save(thmat,file="LV.RData")
 
-mcmcsummaries(thmat)
+# Compute and plot some basic summaries
+# devAskNewPage(TRUE)
+mcmcSummary(thmat)
 
 # eof
 
