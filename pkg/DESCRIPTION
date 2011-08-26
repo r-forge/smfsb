@@ -1,7 +1,7 @@
 Package: smfsb
 Type: Package
 Title: SMfSB 2e: Stochastic modelling for systems biology, 2nd edition
-Version: 0.2
+Version: 0.3
 Date: 2011-04-07
 Author: Darren Wilkinson
 Maintainer: Darren Wilkinson <darren.wilkinson@ncl.ac.uk>
