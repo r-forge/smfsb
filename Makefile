@@ -1,7 +1,7 @@
 # Makefile
 # Makefile for package checking building, installing, uninstalling, etc.
 
-VERSION=0.3
+VERSION=0.4
 
 DEFAULT:
 	make check

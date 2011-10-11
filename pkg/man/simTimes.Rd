@@ -2,7 +2,8 @@
 \alias{simTimes}
 \title{Simulate a model at a specified set of times, using a function (closure) for advancing the state of the model}
 \description{
-This function simulates a model at a specified set of times using a function (closure) for advancing the state of the model, such as created by \code{\link{StepGillespie}} or \code{\link{StepEulerSPN}}.
+This function simulates a single realisation from a Markovian model and
+records the state at a specified set of times using a function (closure) for advancing the state of the model, such as created by \code{\link{StepGillespie}} or \code{\link{StepEulerSPN}}.
 }
 \usage{
 simTimes(x0,t0=0,times,stepFun,...)
@@ -16,23 +17,14 @@ simTimes(x0,t0=0,times,stepFun,...)
 }
 \value{
 An R matrix where each row represents the state of the process at one of the required times. The row names contain the sampled times.}
-\seealso{\code{\link{StepEulerSPN}}, \code{\link{StepGillespie}}, \code{\link{simTs}}, \code{\link{simSample}}, \code{\link{as.timedData}}}
+\seealso{\code{\link{StepEulerSPN}}, \code{\link{StepGillespie}},
+  \code{\link{simTs}}, \code{\link{simSample}},
+  \code{\link{as.timedData}}, \code{\link{pfMLLik}}}
 \examples{
-# example
-# Build a SPN for the Lotka-Volterra system
-N=list()
-N$Pre=matrix(c(1,0,1,1,0,1),ncol=2,byrow=TRUE)
-N$Post=matrix(c(2,0,0,2,0,0),ncol=2,byrow=TRUE)
-N$h=function(x,t,th=c(th1=1,th2=0.005,th3=0.6))
-{
- with(as.list(c(x,th)),{
-         return(c(th1*x1, th2*x1*x2, th3*x2 ))
-        })
-}
-
+# load the LV model
+data(spnModels)
 # create a stepping function
-stepLV = StepGillespie(N)
-
+stepLV = StepGillespie(LV)
 # simulate a realisation using simTimes
 times = seq(0,100,by=0.1)
 plot(ts(simTimes(c(x1=50,x2=100),0,times,stepLV),start=0,deltat=0.1),plot.type="single",lty=1:2)

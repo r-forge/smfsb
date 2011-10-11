@@ -1,7 +1,7 @@
 \name{mytable}
 \alias{mytable}
 \docType{data}
-\title{Simple example data frame, \code{mytable}}
+\title{Simple example data frame}
 \description{
 Trivial example of a very small data frame. Used as part of the R tutorial.
 }

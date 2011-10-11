@@ -1,6 +1,6 @@
 \name{normgibbs}
 \alias{normgibbs}
-\title{Run a simple Gibbs sampler for Bayesian inference for the mean and precision of a normal random sample}
+\title{A simple Gibbs sampler for Bayesian inference for the mean and precision of a normal random sample}
 \description{
 This function runs a simple Gibbs sampler for the Bayesian posterior distribution of the mean and precision given a normal random sample.
 }
@@ -20,7 +20,7 @@ normgibbs(N, n, a, b, cc, d, xbar, ssquared)
 \value{
 An R matrix object containing the samples of the Gibbs sampler.
 }
-\seealso{\code{\link{rcfmc}}, \code{\link{metrop}}}
+\seealso{\code{\link{rcfmc}}, \code{\link{metrop}}, \code{\link{mcmcSummary}}}
 \examples{
 postmat=normgibbs(N=1100,n=15,a=3,b=11,cc=10,d=1/100,xbar=25,ssquared=20)
 postmat=postmat[101:1100,]

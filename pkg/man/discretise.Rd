@@ -2,7 +2,7 @@
 \alias{discretise}
 \title{Discretise output from a discrete event simulation algorithm}
 \description{
-This function discretise output from a discrete event simulation algorithm such as the Gillespie algorithm onto a regular time grid, and returns the results as an R ts object.
+This function discretise output from a discrete event simulation algorithm such as \code{\link{gillespie}} onto a regular time grid, and returns the results as an R \code{\link{ts}} object.
 }
 \usage{
 discretise(out, dt=1, start=0)
@@ -17,22 +17,10 @@ An R \code{\link{ts}} object containing the discretised output.
 }
 \seealso{\code{\link{simpleEuler}}, \code{\link{rdiff}}, \code{\link{gillespie}}, \code{\link{gillespied}}, \code{\link{ts}}}
 \examples{
-# example
-
-# Build a SPN for the Lotka-Volterra system
-N=list()
-N$M=c(x1=50,x2=100)
-N$Pre=matrix(c(1,0,1,1,0,1),ncol=2,byrow=TRUE)
-N$Post=matrix(c(2,0,0,2,0,0),ncol=2,byrow=TRUE)
-N$h=function(x,t,th=c(th1=1,th2=0.005,th3=0.6))
-{
- with(as.list(c(x,th)),{
-         return(c(th1*x1, th2*x1*x2, th3*x2 ))
-        })
-}
-
+# load LV model
+data(spnModels)
 # simulate a realisation of the process and plot it
-out = gillespie(N,10000)
+out = gillespie(LV,10000)
 op=par(mfrow=c(2,2))
 plot(stepfun(out$t,out$x[,1]),pch="")
 plot(stepfun(out$t,out$x[,2]),pch="")

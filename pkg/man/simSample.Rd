@@ -5,7 +5,7 @@
 This function 
 simulates 
 many realisations of a model at a given fixed time in the future given an initial time and state, using a function (closure) for advancing the state of the model
-, such as created by \code{\link{StepGillespie}} or \code{\link{StepEulerSPN}}.
+, such as created by \code{\link{StepGillespie}} or \code{\link{StepSDE}}.
 }
 \usage{
 simSample(n=100,x0,t0=0,deltat,stepFun,...)
@@ -20,23 +20,12 @@ simSample(n=100,x0,t0=0,deltat,stepFun,...)
 }
 \value{
 An R matrix whose rows represent the simulated states of the process at time \code{t0+deltat}.}
-\seealso{\code{\link{StepEulerSPN}}, \code{\link{StepGillespie}}, \code{\link{simTimes}}, \code{\link{simTs}}}
+\seealso{\code{\link{StepSDE}}, \code{\link{StepGillespie}}, \code{\link{simTimes}}, \code{\link{simTs}}}
 \examples{
-# example
-# Build a SPN for the Lotka-Volterra system
-N=list()
-N$Pre=matrix(c(1,0,1,1,0,1),ncol=2,byrow=TRUE)
-N$Post=matrix(c(2,0,0,2,0,0),ncol=2,byrow=TRUE)
-N$h=function(x,t,th=c(th1=1,th2=0.005,th3=0.6))
-{
- with(as.list(c(x,th)),{
-         return(c(th1*x1, th2*x1*x2, th3*x2 ))
-        })
-}
-
+# load LV model
+data(spnModels)
 # create a stepping function
-stepLV = StepGillespie(N)
-
+stepLV = StepGillespie(LV)
 # simulate a sample from the transition kernel
 out3 = simSample(100,c(x1=50,x2=100),0,20,stepLV)
 hist(out3[,"x2"])

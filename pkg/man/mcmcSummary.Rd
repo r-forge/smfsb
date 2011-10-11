@@ -21,7 +21,7 @@ mcmcSummary(mat, rows = 4, lag.max=100, bins=30, show = TRUE, plot = TRUE)
     default graphics device.}
   }
 \value{
-  An R summary object.
+  An R \code{\link{summary}} object.
 }
 \seealso{\code{\link{normgibbs}}, \code{\link{summary}}, \code{\link{acf}}}
 \examples{

@@ -20,7 +20,7 @@ model.
 \code{LVnoise10} has Gaussian noise with standard deviation 10 added.
 \code{LVnoise30} has Gaussian noise with standard deviation 30 added.
 \code{LVpreyNoise10} is the prey component with 10 SD noise added.
-\code{LVnoise3010} has Gaussian noise added. The noise added to the pray
+\code{LVnoise3010} has Gaussian noise added. The noise added to the prey
 component has standard deviation 30 and the noise added to the predator
 component has standard deviation 10.
 \code{LVnoise10scale10} has Gaussian noise with standard deviation 10

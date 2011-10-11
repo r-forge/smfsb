@@ -4,6 +4,7 @@
 LV=list()
 LV$Pre=matrix(c(1,0,1,1,0,1),ncol=2,byrow=TRUE)
 LV$Post=matrix(c(2,0,0,2,0,0),ncol=2,byrow=TRUE)
+LV$M=c(x1=50,x2=100)
 LV$h=function(x,t,th=c(th1=1,th2=0.005,th3=0.6))
 {
  with(as.list(c(x,th)),{
