@@ -31,15 +31,22 @@ See the web home page for Wilkinson (2011) for further details:
 
 \section{Installation}
 
-At the time of writing, the package is in R-Forge, and can be installed from the R command prompt with
-\begin{verbatim}
-install.packages("smfsb",repos="http://r-forge.r-project.org")
-\end{verbatim}
-from any machine with an internet connection. It is hoped that by the time the book is in print, the package will be available from CRAN, and it should therefore be possible to install using the even simpler
+It is hoped that by the time the book is in print, the package will be
+available from CRAN, and it should therefore be possible to install
+using 
 \begin{verbatim}
 install.packages("smfsb")
 \end{verbatim}
-The package can be loaded ready for use with
+from any machine with an internet connection.
+
+The package is being maintained on R-Forge, and so it should always be
+possible to install the very latest nightly build from the R command
+prompt with 
+\begin{verbatim}
+install.packages("smfsb",repos="http://r-forge.r-project.org")
+\end{verbatim}
+
+Once installed, the package can be loaded ready for use with
 \begin{verbatim}
 library(smfsb)
 \end{verbatim}
@@ -88,9 +95,80 @@ at the R command prompt.
 
 The main purpose of this package is to provide a collection of tools
 for building and simulating stochastic kinetic models. This can be
-illustrated using a simple Lotka--Volterra predator--prey system. 
+illustrated using a simple Lotka--Volterra predator--prey
+system. First, consider the prey, $X_1$ and the predator $X_2$ as a
+stochastic network as
+\begin{eqnarray*}
+ X_1 &\longrightarrow& 2 X_1\\
+ X_1 + X_2 &\longrightarrow& 2X_2 \\
+ X_2 &\longrightarrow& \emptyset.
+  \end{eqnarray*}
+The first ``reaction'' represents predator reproduction, the second
+predator--prey interaction and the third predator death.
+We can write this in tabular form as
 
-MORE HERE!
+\begin{tabular}{|cc|cc|c|}\hline
+  \multicolumn{2}{|c|}{Pre} & \multicolumn{2}{|c|}{Post} & Hazard \\ \hline
+  1 & 0 & 2 & 0 & $\theta_1 x_1$ \\
+  1 & 1 & 0 & 2 & $\theta_2 x_1 x_2$ \\
+  0 & 1 & 0 & 0 & $\theta_3 x_2$ \\ \hline
+  \end{tabular}
+
+  This can be
+encoded in R as a stochastic Petri net (SPN) using
+\begin{verbatim}
+# SPN for the Lotka-Volterra system
+LV=list()
+LV$Pre=matrix(c(1,0,1,1,0,1),ncol=2,byrow=TRUE)
+LV$Post=matrix(c(2,0,0,2,0,0),ncol=2,byrow=TRUE)
+LV$h=function(x,t,th=c(th1=1,th2=0.005,th3=0.6))
+{
+ with(as.list(c(x,th)),{
+         return(c(th1*x1, th2*x1*x2, th3*x2 ))
+        })
+}
+\end{verbatim}
+which could be created directly by executing
+\begin{verbatim}
+data(spnModels)
+\end{verbatim}
+Functions for simulating from the transition kernel of the Markov
+process defined by the SPN can be created easily by passing the SPN
+object into the appropriate constructor. For example, if simulation
+using the Gillespie algorithm is required, a simulation function can
+be created with
+\begin{verbatim}
+stepLV=StepGillespie(LV)
+\end{verbatim}
+This function can then be used to advance the state of the
+process. For example, to simulate the state of the process at time 1,
+given an initial condition of $X_1=50$, $X_2=100$ at time 0, use
+\begin{verbatim}
+stepLV(c(x1=50,x2=100),0,1)
+\end{verbatim}
+Alternatively, to simulate a realisation of the process on a regular
+time grid over the interval $[0,100]$ in steps of 0.1 time units, use
+\begin{verbatim}
+out = simTs(c(x1=50,x2=100),0,100,0.1,stepLV)
+\end{verbatim}
+This returns an R time series object which can be plotted
+directly. See the help and runnable example for the function
+\verb$StepGillespie$ for further details.
+
+\section{Inference for stochastic kinetic models from time course data}
+
+Estimating the parameters of stochastic kinetic models using noisy
+time course measurements on some aspect of the system state is a very
+important problem. Wilkinson (2011) takes a Bayesian approach to the
+problem, using particle MCMC methodology. For this, a key aspect is
+the use of a particle filter to compute an unbiased estimate of
+marginal likelihood. This is accomplished using the function
+\verb$pfMLLik$. Once a method is available for generating unbiased
+estimates for the marginal likelihood, this may be embedded into a
+fairly standard marginal Metropolis--Hastings algorithm for parameter
+estimation. See the help and runnable example for \verb$pfMLLik$ for
+further details, along with the particle MCMC demo, which can by run
+using \verb$demo(PMCMC)$.
 
 \section{References}
 
