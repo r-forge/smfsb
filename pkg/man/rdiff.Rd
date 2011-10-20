@@ -8,7 +8,8 @@ This function simulates a single realisation from a time-homogeneous univariate 
 rdiff(afun, bfun, x0 = 0, t = 50, dt = 0.01, ...)
 }
 \arguments{
-  \item{afun}{A scalar-valued function representing the infinitesimal mean of the diffusion process. The first argument of \code{afun} is the current state of the process.}
+  \item{afun}{A scalar-valued function representing the infinitesimal
+    mean (drift) of the diffusion process. The first argument of \code{afun} is the current state of the process.}
   \item{bfun}{A scalar-valued function representing the infinitesimal standard deviation of the process. The first argument of \code{bfun} is the current state of the process.}
   \item{x0}{The initial state of the diffusion process.}
   \item{t}{The length of the time interval over which the diffusion process is to be simulated. Defaults to 50 time units.}

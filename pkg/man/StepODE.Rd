@@ -16,7 +16,8 @@ StepODE(RHSfun)
   \item{RHSfun}{A function representing the RHS of the ODE model. \code{RHSfun} should have prototype \code{RHSfun(x,t,parms,...)}, with \code{t} representing current system time, \code{x} representing current system state and \code{parms} representing the model parameters. The value of the function should be a vector of the same dimension as \code{x}, representing the infinitesimal change in state.}
 }
 \value{
-An R function which can be used to advance the state of the ODE model \code{RHSfun} by using an Euler method with step size \code{dt}. The function closure has interface \code{function(x0,t0,deltat,parms,...)}, where \code{t0} and \code{x0} represent the initial time and state, and \code{deltat} represents the amount of time by which the process should be advanced. The function closure returns a vector representing the simulated state of the system at the new time.}
+An R function which can be used to advance the state of the ODE model
+\code{RHSfun} by using an efficient ODE solver. The function closure has interface \code{function(x0,t0,deltat,parms,...)}, where \code{t0} and \code{x0} represent the initial time and state, and \code{deltat} represents the amount of time by which the process should be advanced. The function closure returns a vector representing the simulated state of the system at the new time.}
 \seealso{\code{\link{StepEulerSPN}}, \code{\link{StepEuler}},
   \code{\link{simTs}}, \code{\link[deSolve]{ode}}}
 \examples{

@@ -8,8 +8,8 @@ A function for advancing the state of a Lotka-Volterra model by calling some C c
 stepLVc(x0,t0,deltat,th=c(1,0.005,0.6))
 }
 \arguments{
-\item{x0}{A vector representing the state of the system at the initial time, \code{tt}.}
-\item{t0}{The time corresponding to the initial state, \code{x}.}
+\item{x0}{A vector representing the state of the system at the initial time, \code{t0}.}
+\item{t0}{The time corresponding to the initial state, \code{x0}.}
 \item{deltat}{The time in advance of the initial time at which the new state is required.}
 \item{th}{A vector of length 3 representing the rate constants associated with the 3 LV reactions. Defaults to \code{c(1,0.005,0.6)}.}
 }

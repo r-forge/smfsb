@@ -14,7 +14,7 @@ pfMLLik(n,simx0,t0,stepFun,dataLik,data)
   \item{stepFun}{A function for advancing the state of the Markov process, such as returned by \code{\link{StepGillespie}}.}
   \item{dataLik}{A function with interface
     \code{dataLik(x,t,y,log=TRUE,...)}, where \code{x} and \code{t}
-    represent the true time and state of the process, and \code{y} is
+    represent the true state and time of the process, and \code{y} is
     the observed data. The return value should be the (log of the)
     likelihood of the observation. The function therefore represents the
   observation model.}

@@ -2,7 +2,7 @@
 \alias{rfmc}
 \title{Simulate a finite state space Markov chain}
 \description{
-This function simulates a single realisation from a Markov chain having a finite state space based on a given transition matrix.
+This function simulates a single realisation from a discrete time Markov chain having a finite state space based on a given transition matrix.
 }
 \usage{
 rfmc(n,P,pi0)

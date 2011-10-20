@@ -20,11 +20,11 @@ simpleEuler(t=50, dt=0.001, fun, ic, ...)
   \item{fun}{A vector-valued function representing the right hand side
     of the ODE model.
     The first argument is a vector representing the current state of the
-    model, \code{x}. The function may have additional arguments, representing
-    model parameters.
+    model, \code{x}. 
     The second argument of \code{fun} is the current simulation time,
     \code{t}. In the case of a homogeneous ODE model, this argument will
-    be unused within the function.
+    be unused within the function. The function may have additional arguments, representing
+    model parameters.
     The output of \code{fun} should be a vector of the same dimension as \code{x}.}
   \item{ic}{The initial conditions for the ODE model. This should be a vector of the same dimensions as the output from \code{fun}, and the second argument of \code{fun}.}
   \item{...}{Additional arguments will be passed into \code{fun}.}

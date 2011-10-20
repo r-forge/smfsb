@@ -9,7 +9,7 @@ normgibbs(N, n, a, b, cc, d, xbar, ssquared)
 }
 \arguments{
   \item{N}{The number of iterations of the Gibbs sampler.}
-  \item{n}{A sample size of the normal random sample.}
+  \item{n}{The sample size of the normal random sample.}
   \item{a}{The shape parameter of the gamma prior on the sample precision.}
   \item{b}{The scale parameter of the gamma prior on the sample precision.}
   \item{cc}{The mean of the normal prior on the sample mean.}
