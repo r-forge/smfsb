@@ -8,7 +8,26 @@
 
 \section{Overview}
 
-The \verb$smfsb$ package provides all of the R code associated with the book, Wilkinson (2011). The book should therefore be regarded as the main source of documentation regarding the code. However, there should be sufficient documentation here in order to get started with using the software. Note that most of this code is intended primarily to be pedagogic. It is not intended to be especially efficient or robust, and therefore is not recommended for "production environments". Almost all of the code is pure R code, intended to be inspected from the R command line. In order to keep the code short, clean and easily understood, there is almost no argument checking or other boilerplate code. This is not a bug, so please don't report it as such. Much of the code is computationally intensive, and would be speeded up by porting to C. Again, I haven't done this in order to keep the code as simple and easy to understand as possible. 
+The \verb$smfsb$ package provides all of the R code associated with
+the book, Wilkinson (2011). The book should therefore be regarded as
+the main source of documentation regarding the code. However, there
+should be sufficient documentation here in order to get started with
+using the software. In particular, owners of Wilkinson (2006) should
+find it relatively straightforward to get to grips with this new R
+package. Note that most of this code is intended primarily to be
+pedagogic. It is not intended to be especially efficient or robust,
+and therefore is not recommended for "production environments". Almost
+all of the code is pure R code, intended to be inspected from the R
+command line. In order to keep the code short, clean and easily
+understood, there is almost no argument checking or other boilerplate
+code. This is not a bug, so please don't report it as such. Much of
+the code is computationally intensive, and would be speeded up by
+porting to C. Again, I haven't done this in order to keep the code as
+simple and easy to understand as possible.  
+
+See the web home page for Wilkinson (2011) for further details:
+
+\url{http://www.staff.ncl.ac.uk/d.j.wilkinson/smfsb/2e/}
 
 \section{Installation}
 
@@ -65,9 +84,21 @@ mytable
 \end{verbatim}
 at the R command prompt.
 
+\section{Simulation of stochastic kinetic models}
+
+The main purpose of this package is to provide a collection of tools
+for building and simulating stochastic kinetic models. This can be
+illustrated using a simple Lotka--Volterra predator--prey system. 
+
+MORE HERE!
+
 \section{References}
 
+\begin{description}
+\item Wilkinson, D. J. (2006) \emph{Stochastic Modelling for Systems Biology}, Chapman \& Hall/CRC Press. 
+\item 
 Wilkinson, D. J. (2011) \emph{Stochastic Modelling for Systems Biology}, second edition, Chapman \& Hall/CRC Press. 
+\end{description}
 
 \end{document}
 
