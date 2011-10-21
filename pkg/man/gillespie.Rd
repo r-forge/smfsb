@@ -25,7 +25,7 @@ gillespie(N, n, ...)
   \item{...}{Additional arguments (such as reactions rates) will be passed into the function \code{N$h}.}
 }
 \value{
-An list with first component \code{t}, a vector of length \code{n} containing event times and second component \code{x}, a matrix with \code{n+1} rows containing the state of the system. The \code{i}th row of \code{x} contains the state of the system prior to the \code{i}th event.
+A list with first component \code{t}, a vector of length \code{n} containing event times and second component \code{x}, a matrix with \code{n+1} rows containing the state of the system. The \code{i}th row of \code{x} contains the state of the system prior to the \code{i}th event.
 }
 \seealso{\code{\link{simpleEuler}}, \code{\link{rdiff}},
   \code{\link{discretise}}, \code{\link{gillespied}}, \code{\link{StepGillespie}}}
