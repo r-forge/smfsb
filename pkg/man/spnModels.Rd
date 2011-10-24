@@ -4,12 +4,14 @@
 \alias{ID}
 \alias{BD}
 \alias{Dimer}
+\alias{MM}
 \docType{data}
 \title{Example SPN models}
 \description{
 Collection of example stochastic Petri net (SPN) models. Includes \code{LV}, a Lotka--Volterra
 model, \code{ID}, an immigration--death process, \code{BD}, a birth--death
-process and \code{Dimer}, a simple dimerisation kinetics model.
+process, \code{Dimer}, a simple dimerisation kinetics model, and
+\code{MM}, a Michaelis--Menten enzyme kinetic model.
 }
 \usage{data(spnModels)}
 \format{Each model is a list, with components \code{Pre}, \code{Post},
