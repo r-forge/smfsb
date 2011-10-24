@@ -1,3 +1,11 @@
+Changes in version 1.0
+
+Final release version, in time for publication of the book. Now with complete documentation for all functions and data sets, and improved vignette.
+
+Changes in version 0.4
+
+Documentation for data sets in addition to functions.
+
 Changes in version 0.3
 
 Improved documentation.
@@ -5,3 +13,4 @@ Improved documentation.
 Version 0.2
 
 First usable version of the software, compatable with the content of the book.
+
