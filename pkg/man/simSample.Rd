@@ -22,12 +22,7 @@ simSample(n=100,x0,t0=0,deltat,stepFun,...)
 An R matrix whose rows represent the simulated states of the process at time \code{t0+deltat}.}
 \seealso{\code{\link{StepSDE}}, \code{\link{StepGillespie}}, \code{\link{simTimes}}, \code{\link{simTs}}}
 \examples{
-# load LV model
-data(spnModels)
-# create a stepping function
-stepLV = StepGillespie(LV)
-# simulate a sample from the transition kernel
-out3 = simSample(100,c(x1=50,x2=100),0,20,stepLV)
+out3 = simSample(100,c(x1=50,x2=100),0,20,stepLVc)
 hist(out3[,"x2"])
 }
 

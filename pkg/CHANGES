@@ -1,6 +1,10 @@
+Version 1.1
+
+Development version - not for release to CRAN.
+
 Changes in version 1.0
 
-Final release version, in time for publication of the book. Now with complete documentation for all functions and data sets, and improved vignette.
+Final release version, in time for publication of the book. Now with complete documentation for all functions and data sets, and improved vignette. Released onto CRAN.
 
 Changes in version 0.4
 
