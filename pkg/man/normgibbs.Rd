@@ -15,7 +15,7 @@ normgibbs(N, n, a, b, cc, d, xbar, ssquared)
   \item{cc}{The mean of the normal prior on the sample mean.}
   \item{d}{The precision of the normal prior on the sample mean.}
   \item{xbar}{The sample mean of the data. eg. \code{mean(x)} for a vector \code{x}.}
-  \item{ssquared}{The sum of squares of the data. eg. \code{sum(x*x)} for a vector \code{x}.}
+  \item{ssquared}{The sample variance of the data. eg. \code{var(x)} for a vector \code{x}.}
 }
 \value{
 An R matrix object containing the samples of the Gibbs sampler.
