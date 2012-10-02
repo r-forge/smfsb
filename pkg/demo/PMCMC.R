@@ -6,7 +6,7 @@ require(smfsb)
 # load the reference data
 data(LVdata)
 
-# assume know measurement SD of 10
+# assume known measurement SD of 10
 noiseSD=10
 
 # now define the data likelihood functions

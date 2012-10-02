@@ -13,6 +13,7 @@ normgibbs<-function (N, n, a, b, cc, d, xbar, ssquared)
     tau = rgamma(1, a + n/2, taub)
     mat[i, ] = c(mu, tau)
   }
+  names(mat)=c("mu","tau")
   mat
 }
 
