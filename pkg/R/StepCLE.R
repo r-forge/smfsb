@@ -15,7 +15,8 @@ StepCLE <- function(N,dt=0.01)
              h = N$h(x, t, ...)
              dw = rnorm(v,0,sdt)
              dx = S %*% (h*dt + sqrt(h)*dw)
-             x = x+as.vector(dx)
+             x = x + as.vector(dx)
+             x[x<0] = -x[x<0] # reflection hack
              t = t+dt
              if (t > termt)
                return(x)
