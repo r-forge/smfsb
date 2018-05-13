@@ -1,0 +1,11 @@
+Package: smfsbSBML
+Type: Package
+Title: SMfSB 3e: libSBML extensions
+Version: 0.1
+Date: 2018-05-15
+Author: Darren Wilkinson
+Maintainer: Darren Wilkinson <darren.wilkinson@ncl.ac.uk>
+Description: This package contains code and data for modelling and simulation of stochastic kinetic biochemical network models. Most code is contained in the CRAN package "smfsb". This package contains the extensions requiring "libSBML".
+License: LGPL-3
+Depends: R (>= 2.9.0), smfsb (>= 1.2), libSBML (>= 5.16.0)
+
