@@ -4,12 +4,13 @@
 require(libSBML)
 require(smfsb)
 
-sbml2spn = function(filename) {
+sbml2spn = function(filename, verb=FALSE) {
     d = readSBML(filename)
     m = d$getModel()
     ## Species and initial amounts
     P=list()
     ns = m$getNumSpecies()
+    if (verb) cat(ns,"species\n")
     Mv = numeric(ns)
     Mn = vector("character",ns)
     for (i in 0:(ns-1)) {
@@ -19,7 +20,9 @@ sbml2spn = function(filename) {
         Mv[i+1] = a
     }
     names(Mv) = Mn
+    if (verb) print(Mn)
     P$M = Mv
+    P$P = Mn
     ## Global parameters
     nparm = m$getNumParameters()
     GPv = vector("numeric",nparm)
@@ -34,11 +37,12 @@ sbml2spn = function(filename) {
     }
     ## Reactions
     nr = m$getNumReactions()
+    if (verb) cat(nr,"reactions\n")
     Pre = matrix(0,nrow=nr,ncol=ns)
     colnames(Pre)=Mn
     Post = matrix(0,nrow=nr,ncol=ns)
     colnames(Post)=Mn
-    Rn = vector("character",ns)
+    Rn = vector("character",nr)
     KLv = vector("expression",nr)
     LPl = vector("list",nr)
     for (i in 0:(nr-1)) {
@@ -75,8 +79,10 @@ sbml2spn = function(filename) {
             LPl[[i+1]] = lpv
         }
     }
+    if (verb) print(Rn)
     rownames(Pre)=Rn
     rownames(Post)=Rn
+    P$T = Rn
     P$Pre = Pre
     P$Post = Post
     P$GP = GPv

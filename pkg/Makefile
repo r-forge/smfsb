@@ -25,6 +25,10 @@ install:
 	R CMD INSTALL smfsb_$(VERSION).tar.gz
 	R CMD INSTALL smfsbSBML_$(VERSIONSBML).tar.gz
 
+web:
+	make build
+	scp smfsb_$(VERSION).tar.gz smfsbSBML_$(VERSIONSBML).tar.gz @unix.ncl.ac.uk:public_html/smfsb/3e/
+
 install-pkg:
 	R CMD INSTALL smfsb
 	R CMD INSTALL smfsbSBML
