@@ -10,25 +10,31 @@ DEFAULT:
 
 check:
 	R CMD check smfsb
+	R CMD check smfsbSBML
 
 check-cran:
 	R CMD check --as-cran smfsb
+	R CMD check --as-cran smfsbSBML
 
 build:
 	R CMD build smfsb
+	R CMD build smfsbSBML
 
 install:
 	make build
 	R CMD INSTALL smfsb_$(VERSION).tar.gz
+	R CMD INSTALL smfsbSBML_$(VERSIONSBML).tar.gz
 
 install-pkg:
 	R CMD INSTALL smfsb
+	R CMD INSTALL smfsbSBML
 
 remove:
 	R CMD REMOVE smfsb
+	R CMD REMOVE smfsbSBML
 
 clean:
-	rm -rf *~ smfsb_*.tar.gz smfsb.Rcheck
+	rm -rf *~ smfsb*.tar.gz *.Rcheck
 
 
 update:
