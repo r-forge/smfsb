@@ -8,17 +8,17 @@ DEFAULT:
 	make install
 
 check:
-	R CMD check pkg
+	R CMD check smfsb
 
 build:
-	R CMD build pkg
+	R CMD build smfsb
 
 install:
 	make build
 	R CMD INSTALL smfsb_$(VERSION).tar.gz
 
 install-pkg:
-	R CMD INSTALL pkg
+	R CMD INSTALL smfsb
 
 remove:
 	R CMD REMOVE smfsb
