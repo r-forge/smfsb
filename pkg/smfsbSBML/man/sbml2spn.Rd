@@ -5,10 +5,11 @@
 This function reads and parses an SBML file into an SPN object suitable for simulation using the "smfsb" R package.
 }
 \usage{
-sbml2spn(filename)
+sbml2spn(filename, verb=FALSE)
 }
 \arguments{
   \item{filename}{The path to the SBML file.}
+  \item{verb}{If TRUE, print some basic parsing info to the console.}
 }
 \value{
 An SPN object representing the a reaction network model.}

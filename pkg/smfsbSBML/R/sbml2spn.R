@@ -23,6 +23,18 @@ sbml2spn = function(filename, verb=FALSE) {
     if (verb) print(Mn)
     P$M = Mv
     P$P = Mn
+    ## Compartments
+    ncomp = m$getNumCompartments()
+    Cv = vector("numeric",ncomp)
+    Cn = vector("character",ncomp)
+    if (ncomp>0) {
+        for (i in 0:(ncomp-1)) {
+            comp = m$getCompartment(i)
+            Cv[i+1] = comp$getSize()
+            Cn[i+1] = comp$getId()
+        }
+        names(Cv) = Cn
+    }
     ## Global parameters
     nparm = m$getNumParameters()
     GPv = vector("numeric",nparm)
@@ -85,11 +97,12 @@ sbml2spn = function(filename, verb=FALSE) {
     P$T = Rn
     P$Pre = Pre
     P$Post = Post
+    P$Comp = Cv
     P$GP = GPv
     P$KL = KLv
     P$LP = LPl
-    P$h = function(x, t, gp = GPv, lp = LPl) {
-        with(as.list(c(x, gp)), {
+    P$h = function(x, t, comp = Cv, gp = GPv, lp = LPl) {
+        with(as.list(c(x, comp, gp)), {
             x = vector("numeric",nr)
             for (i in 1:nr) {
                 x[i] = with(as.list(lp[[i]]), eval(KLv[i]))
