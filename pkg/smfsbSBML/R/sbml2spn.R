@@ -101,8 +101,8 @@ sbml2spn = function(filename, verb=FALSE) {
     P$GP = GPv
     P$KL = KLv
     P$LP = LPl
-    P$h = function(x, t, comp = Cv, gp = GPv, lp = LPl) {
-        with(as.list(c(x, comp, gp)), {
+    P$h = function(x, t, comp = Cv, gp = GPv, lp = LPl, param=NULL) {
+        with(as.list(c(x, param, comp, gp)), {
             x = vector("numeric",nr)
             for (i in 1:nr) {
                 x[i] = with(as.list(lp[[i]]), eval(KLv[i]))
