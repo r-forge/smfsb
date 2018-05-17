@@ -5,6 +5,7 @@
 \alias{BD}
 \alias{Dimer}
 \alias{MM}
+\alias{LVV}
 \docType{data}
 \title{Example SPN models}
 \description{
