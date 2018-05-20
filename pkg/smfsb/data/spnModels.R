@@ -34,6 +34,18 @@ BD$h=function(x,t,th=c(lambda=1,mu=1.1))
   })
 }
 
+# Simple SIR model
+SIR=list()
+SIR$M=c(S=100,I=1,R=0)
+SIR$Pre=matrix(c(1,1,0,0,1,0),ncol=3,byrow=TRUE)
+SIR$Post=matrix(c(0,2,0,0,0,1),ncol=3,byrow=TRUE)
+SIR$h=function(x,t,th=c(beta=0.1,gamma=1))
+{
+  with(as.list(c(x,th)),{
+    return(c(beta*S*I,gamma*I))
+  })
+}
+
 # Dimerisation kinetics
 Dimer=list()
 Dimer$Pre=matrix(c(2,0,0,1),ncol=2,byrow=TRUE)

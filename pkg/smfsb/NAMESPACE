@@ -1,2 +1,6 @@
-export(rfmc,rcfmc,imdeath,rdiff,simpleEuler,gillespie,discretise,gillespied,StepGillespie,simTs,simSample,simTimes,StepEulerSPN,StepCLE,StepPTS,StepFRM,StepEuler,stepLVc,StepODE,StepSDE,as.timedData,pfMLLik,normgibbs,metrop,mcmcSummary)
+importFrom("graphics", "hist", "par")
+importFrom("stats", "acf", "dnorm", "rexp", "rgamma", "rnorm", "rpois","runif", "sd", "stepfun", "time", "ts")
+export(rfmc,rcfmc,imdeath,rdiff,simpleEuler,gillespie,discretise,gillespied,StepGillespie,
+simTs,simSample,simTimes,StepEulerSPN,StepCLE,StepPTS,StepFRM,StepEuler,stepLVc,StepODE,StepSDE,
+as.timedData,pfMLLik,normgibbs,metrop,mcmcSummary)
 useDynLib(smfsb,stepLV)
