@@ -23,7 +23,7 @@ StepGillespie(N)
 }
 \value{
 An R function which can be used to advance the state of the SPN model \code{N} by using the Gillespie algorithm. The function closure has interface \code{function(x0,t0,deltat,...)}, where \code{x0} and \code{t0} represent the initial state and time, and \code{deltat} represents the amount of time by which the process should be advanced. The function closure returns a vector representing the simulated state of the system at the new time.}
-\seealso{\code{\link{StepEulerSPN}}, \code{\link{gillespied}},
+\seealso{\code{\link{StepEulerSPN}}, \code{\link{StepGillespie1D}},
   \code{\link{simTs}}, \code{\link{simTimes}}, \code{\link{simSample}}, \code{\link{StepFRM}},
   \code{\link{StepPTS}}, \code{\link{StepCLE}}}
 \examples{

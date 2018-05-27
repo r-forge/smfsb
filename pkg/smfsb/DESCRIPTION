@@ -7,5 +7,5 @@ Author: Darren Wilkinson
 Maintainer: Darren Wilkinson <darren.wilkinson@ncl.ac.uk>
 Description: This package contains code and data for modelling and simulation of stochastic kinetic biochemical network models. It contains the code and data associated with the second and third editions of the book Stochastic Modelling for Systems Biology, published by Chapman & Hall/CRC Press.
 License: LGPL-3
-Depends: R (>= 2.9.0)
+Depends: R (>= 2.9.0), abind
 Suggests: deSolve (>= 1.9)
