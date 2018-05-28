@@ -3,5 +3,6 @@ importFrom("abind", "abind")
 importFrom("stats", "acf", "dnorm", "rexp", "rgamma", "rnorm", "rpois","runif", "sd", "stepfun", "time", "ts")
 export(rfmc,rcfmc,imdeath,rdiff,simpleEuler,gillespie,discretise,gillespied,StepGillespie,
 simTs,simSample,simTimes,StepEulerSPN,StepCLE,StepPTS,StepFRM,StepEuler,stepLVc,StepODE,StepSDE,
-as.timedData,pfMLLik,normgibbs,metrop,mcmcSummary, StepGillespie1D, StepGillespie2D, simTs1D, simTs2D, StepCLE1D, StepCLE2D)
+as.timedData,pfMLLik, pfMLLik1, normgibbs,metrop,mcmcSummary, StepGillespie1D, StepGillespie2D, 
+simTs1D, simTs2D, StepCLE1D, StepCLE2D)
 useDynLib(smfsb,stepLV)

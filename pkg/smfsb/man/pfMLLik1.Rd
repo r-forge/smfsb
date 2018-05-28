@@ -1,11 +1,12 @@
-\name{pfMLLik}
-\alias{pfMLLik}
+\name{pfMLLik1}
+\alias{pfMLLik1}
 \title{Create a function for computing the log of an unbiased estimate of marginal likelihood of a time course data set}
 \description{
-Create a function for computing the log of an unbiased estimate of marginal likelihood of a time course data set using a simple bootstrap particle filter. This version uses the "log-sum-exp trick" for avoiding numerical underflow of weights. See \code{\link{pfMLLik1}} for a version which doesn't.
+Create a function for computing the log of an unbiased estimate of marginal likelihood of a time course data set using a simple bootstrap particle filter. This version does not use the "log-sum-exp trick" for avoiding numerical underflow. 
+See \code{\link{pfMLLik}} for a version which does.
 }
 \usage{
-pfMLLik(n,simx0,t0,stepFun,dataLik,data)
+pfMLLik1(n,simx0,t0,stepFun,dataLik,data)
 }
 \arguments{
   \item{n}{An integer representing the number of particles to use in the particle filter.}
@@ -23,7 +24,7 @@ pfMLLik(n,simx0,t0,stepFun,dataLik,data)
 \value{
 An R function with interface \code{(...)} which evaluates to the log of the particle filter's unbiased estimate of the marginal likelihood of the data.
 }
-\seealso{\code{\link{pfMLLik1}}, \code{\link{StepGillespie}}, \code{\link{as.timedData}},
+\seealso{\code{\link{pfMLLik}}, \code{\link{StepGillespie}}, \code{\link{as.timedData}},
   \code{\link{simTimes}}, \code{\link{stepLVc}}}
 \examples{
 noiseSD=5
@@ -47,7 +48,7 @@ simx0 <- function(N,t0,...)
     colnames(mat)=c("x1","x2")
     mat
 }
-mLLik=pfMLLik(1000,simx0,0,stepLVc,dataLik,data)
+mLLik=pfMLLik1(1000,simx0,0,stepLVc,dataLik,data)
 print(mLLik())
 print(mLLik(th=c(th1 = 1, th2 = 0.005, th3 = 0.6)))
 print(mLLik(th=c(th1 = 1, th2 = 0.005, th3 = 0.5)))
