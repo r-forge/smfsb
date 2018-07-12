@@ -30,7 +30,7 @@ abcSmcStep <- function(dprior, priorSample, priorLW, rdist, rperturb,
     new = prop[dist < qCut]
     lw = mcMap( function(th) {
         terms = priorLW + sapply(priorSample,
-                                 function(x){dperturb(x, th, log=TRUE)})
+                                 function(x){dperturb(th, x, log=TRUE)})
         mt = max(terms)
         denom = mt + log(sum(exp(terms - mt)))
         dprior(th, log=TRUE) - denom
