@@ -1,7 +1,7 @@
-importFrom("graphics", "hist", "par", "image")
+importFrom("graphics", "hist", "par", "image", "abline")
 importFrom("abind", "abind")
 importFrom("parallel","mclapply","mcMap")
-importFrom("stats", "acf", "dnorm", "rexp", "rgamma", "rnorm", "rpois","runif", "sd", "stepfun", "time", "ts")
+importFrom("stats", "acf", "dnorm", "rexp", "rgamma", "rnorm", "rpois","runif", "sd", "stepfun", "time", "ts", "quantile")
 export(rfmc,rcfmc,imdeath,rdiff,simpleEuler,gillespie,discretise,gillespied,StepGillespie,
 simTs,simSample,simTimes,StepEulerSPN,StepCLE,StepPTS,StepFRM,StepEuler,stepLVc,StepODE,StepSDE,
 as.timedData,pfMLLik, pfMLLik1, normgibbs, metrop, mcmcSummary, StepGillespie1D, StepGillespie2D, 
