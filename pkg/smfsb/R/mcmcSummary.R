@@ -1,5 +1,5 @@
 
-mcmcSummary <- function (mat, rows = 4, lag.max=100, bins=30, show = TRUE, plot = TRUE) 
+mcmcSummary <- function (mat, rows = 4, lag.max=100, bins=30, show = TRUE, plot = TRUE, truth=NULL) 
 {
   d = dim(mat)
   p = d[2]
@@ -15,8 +15,10 @@ mcmcSummary <- function (mat, rows = 4, lag.max=100, bins=30, show = TRUE, plot 
     op = par(mfrow = c(rows, 3))
     for (i in 1:p) {
       plot(ts(mat[, i]), main = names[i], ylab = "Value", xlab = "Iteration")
+      if (!is.null(truth)) abline(truth[i],0,lwd=2,lty=3)
       acf(mat[, i], lag.max = lag.max, main = names[i], ci=0, ylim=c(0,1))
       hist(mat[, i], bins, main = names[i], xlab = "Value", freq = FALSE)
+      if (!is.null(truth)) abline(v=truth[i],lwd=2,lty=3)
     }
     par(op)
   }
