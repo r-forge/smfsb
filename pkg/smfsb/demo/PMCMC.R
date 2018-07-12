@@ -1,15 +1,15 @@
-# PMCMC.R
+## PMCMC.R
 
-# make sure the package is loaded
+## make sure the package is loaded
 require(smfsb)
 
-# load the reference data
+## load the reference data
 data(LVdata)
 
-# assume known measurement SD of 10
+## assume known measurement SD of 10
 noiseSD=10
 
-# now define the data likelihood functions
+## now define the data likelihood functions
 data1Lik <- function(x,t,y,log=TRUE,...)
 {
 	with(as.list(x),{
@@ -35,7 +35,7 @@ data3Lik <- function(x,t,y,log=TRUE,...)
 		return(exp(ll))
 }
 
-# now define a sampler for the prior on the initial state
+## now define a sampler for the prior on the initial state
 simx0 <- function(N,t0,...)
 {
 	mat=cbind(rpois(N,50),rpois(N,100))
@@ -47,42 +47,23 @@ LVdata=as.timedData(LVnoise10)
 LVpreyData=as.timedData(LVpreyNoise10)
 colnames(LVpreyData)=c("x1")
 
-# create marginal log-likelihood functions, based on a particle filter
+## create marginal log-likelihood functions, based on a particle filter
 mLLik1=pfMLLik(100,simx0,0,stepLVc,data1Lik,LVpreyData)
 mLLik2=pfMLLik(100,simx0,0,stepLVc,data2Lik,LVdata)
 mLLik3=pfMLLik(100,simx0,0,stepLVc,data3Lik,LVdata)
 
-# Now create an MCMC algorithm...
-iters=1000
-tune=0.01
-thin=10
+## Now create an MCMC algorithm...
 #th=c(th1 = 1, th2 = 0.005, th3 = 0.6)
 th=c(th1 = 1, th2 = 0.005, th3 = 0.6, sd=10)
+p = length(th)
+rprop = function(th, tune=0.01) { th*exp(rnorm(p,0,tune)) }
+thmat = metropolisHastings(th,mLLik3,rprop,iters=1000,thin=10)
 
-p=length(th)
-ll=-1e99
-thmat=matrix(0,nrow=iters,ncol=p)
-colnames(thmat)=names(th)
-for (i in 1:iters) {
-	message(paste(i,""),appendLF=FALSE)
-	for (j in 1:thin) {
-		thprop=th*exp(rnorm(p,0,tune))
-		llprop=mLLik3(thprop)
-		if (log(runif(1)) < llprop - ll) {
-			th=thprop
-			ll=llprop
-			}
-		}
-	thmat[i,]=th
-	}
-message("Done!")
-
-# Dump MCMC output matrix to disk
+## Dump MCMC output matrix to disk
 save(thmat,file="LV.RData")
 
-# Compute and plot some basic summaries
-# devAskNewPage(TRUE)
-mcmcSummary(thmat)
+## Compute and plot some basic summaries
+mcmcSummary(thmat,truth=th)
 
 # eof
 
