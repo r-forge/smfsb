@@ -73,10 +73,10 @@ LVV=list()
 LVV$Pre=matrix(c(1,0,1,1,0,1),ncol=2,byrow=TRUE)
 LVV$Post=matrix(c(2,0,0,2,0,0),ncol=2,byrow=TRUE)
 LVV$M=c(x1=50,x2=100)
-LVV$h=function(x,t,th=c(th1=1,th2=0.005,th3=0.6,v=1))
+LVV$h=function(x,t,th=c(th1=1,th2=0.005,th3=0.6,V=1))
 {
   with(as.list(c(x,th)),{
-    return(c(th1*x1, th2*x1*x2/v, th3*x2 ))
+    return(c(th1*x1, th2*x1*x2/V, th3*x2 ))
   })
 }
 
