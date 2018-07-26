@@ -1,6 +1,6 @@
 \documentclass [a4paper]{article}
 \usepackage{url}
-\title{smfsb - Stochastic Modelling for Systems Biology, second edition}
+\title{smfsb - Stochastic Modelling for Systems Biology}
 \author{Darren Wilkinson}
 %\VignetteIndexEntry{smfsb}
 \begin{document}
