@@ -9,10 +9,10 @@
 \section{Overview}
 
 The \verb$smfsb$ package provides all of the R code associated with
-the book, Wilkinson (2011). The book should therefore be regarded as
+the second and third editions of the book \emph{Stochastic modelling for systems biology}, Wilkinson (2011, 2018). The books should therefore be regarded as
 the main source of documentation regarding the code. However, there
 should be sufficient documentation here in order to get started with
-using the software. In particular, owners of Wilkinson (2006) should
+using the software. In particular, owners of the first edition (Wilkinson, 2006) should
 find it relatively straightforward to get to grips with this new R
 package. Note that most of this code is intended primarily to be
 pedagogic. It is not intended to be especially efficient or robust,
@@ -25,13 +25,13 @@ the code is computationally intensive, and would be speeded up by
 porting to C. Again, I haven't done this in order to keep the code as
 simple and easy to understand as possible.  
 
-See the web home page for Wilkinson (2011) for further details:
+See the web home page for Wilkinson (2018) for further details:
 
-\url{http://www.staff.ncl.ac.uk/d.j.wilkinson/smfsb/2e/}
+\url{https://github.com/darrenjw/smfsb/}
 
 \section{Installation}
 
-It is hoped that by the time the book is in print, the package will be
+The package will is
 available from CRAN, and it should therefore be possible to install
 using 
 \begin{verbatim}
@@ -176,6 +176,8 @@ using \verb$demo(PMCMC)$.
 \item Wilkinson, D. J. (2006) \emph{Stochastic Modelling for Systems Biology}, Chapman \& Hall/CRC Press. 
 \item 
 Wilkinson, D. J. (2011) \emph{Stochastic Modelling for Systems Biology}, second edition, Chapman \& Hall/CRC Press. 
+\item 
+Wilkinson, D. J. (2018) \emph{Stochastic Modelling for Systems Biology}, third edition, Chapman \& Hall/CRC Press. 
 \end{description}
 
 \end{document}
