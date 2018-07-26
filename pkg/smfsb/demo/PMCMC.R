@@ -20,19 +20,13 @@ data1Lik <- function(x,t,y,log=TRUE,...)
 data2Lik <- function(x,t,y,log=TRUE,...)
 {
 	ll=sum(dnorm(y,x,noiseSD,log=TRUE))
-	if (log)
-		return(ll)
-	else
-		return(exp(ll))
+	if (log) ll else exp(ll)
 }
 
 data3Lik <- function(x,t,y,log=TRUE,...)
 {
 	ll=sum(dnorm(y,x,th["sd"],log=TRUE))
-	if (log)
-		return(ll)
-	else
-		return(exp(ll))
+	if (log) ll else exp(ll)
 }
 
 ## now define a sampler for the prior on the initial state
