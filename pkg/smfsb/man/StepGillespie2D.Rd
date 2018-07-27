@@ -44,7 +44,7 @@ representing the initial condition, \code{t0} represent the initial state and ti
 \examples{
 \donttest{
 data(spnModels)
-m=20; n=30; T=15
+m=20; n=30; T=10
 x0=array(0,c(2,m,n))
 dimnames(x0)[[1]]=c("x1","x2")
 x0[,round(m/2),round(n/2)]=LV$M
