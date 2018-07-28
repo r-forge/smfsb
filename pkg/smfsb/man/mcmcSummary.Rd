@@ -19,7 +19,7 @@ mcmcSummary(mat, rows = 4, lag.max=100, bins=30, show = TRUE, plot = TRUE, truth
     console.}
   \item{plot}{If \code{TRUE}, will plot graphical summaries on the
     default graphics device.}
-  \item{truth}{Optional vector of "true values", one for each variable, for the case where an algorithm is being tested on synthetic data for known parameters. The plots will be annotated with a dotted line indicating the true value.}
+  \item{truth}{Optional vector of "true values", one for each variable, for the case where an algorithm is being tested on synthetic data for known parameters. The plots will be annotated with a red line indicating the true value.}
   }
 \value{
   An R \code{\link{summary}} object.
@@ -28,7 +28,7 @@ mcmcSummary(mat, rows = 4, lag.max=100, bins=30, show = TRUE, plot = TRUE, truth
 \examples{
 out=normgibbs(N=1000,n=15,a=3,b=11,cc=10,d=1/100,xbar=25,ssquared=20)
 names(out)=c("mu","tau")
-mcmcSummary(out,rows=2,bins=10)
+mcmcSummary(out,rows=2,bins=10,truth=c(25,1/20))
 }
 
 \keyword{smfsb}
