@@ -16,6 +16,9 @@ check-cran:
 	R CMD check --as-cran smfsb
 	R CMD check --as-cran smfsbSBML
 
+check-all:
+	R CMD check --as-cran --run-donttest smfsb
+
 build:
 	R CMD build smfsb
 	R CMD build smfsbSBML

@@ -29,8 +29,8 @@ StepCLE2D(N,d,dt=0.01)
   \item{d}{A vector of diffusion coefficients - one coefficient for each
   reacting species, in order. The coefficient is the reaction rate for a
 reaction for a molecule moving into an adjacent compartment. The hazard
-for a given molecule leaving the compartment is therefore twice this
-value (as it can leave to the left or the right).}
+for a given molecule leaving the compartment is therefore four times this
+value (as it can leave in one of 4 directions).}
 \item{dt}{Time step for the Euler-Maruyama discretisation.}
 }
 \value{

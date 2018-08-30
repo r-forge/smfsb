@@ -30,8 +30,8 @@ StepGillespie2D(N,d)
   \item{d}{A vector of diffusion coefficients - one coefficient for each
   reacting species, in order. The coefficient is the reaction rate for a
 reaction for a molecule moving into an adjacent compartment. The hazard
-for a given molecule leaving the compartment is therefore twice this
-value (as it can leave to the left or the right).}
+for a given molecule leaving the compartment is therefore four times this
+value (as it can leave in one of 4 directions).}
 }
 \value{
 An R function which can be used to advance the state of the SPN model
