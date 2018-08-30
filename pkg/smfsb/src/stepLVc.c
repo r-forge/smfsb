@@ -47,6 +47,8 @@ static const R_CMethodDef cMethods[] = {
 void R_init_stepLVc(DllInfo *info)
 {
    R_registerRoutines(info, cMethods, NULL, NULL, NULL);
+   R_useDynamicSymbols(info, FALSE);
+   R_forceSymbols(info, TRUE);
 }
 
 // eof
