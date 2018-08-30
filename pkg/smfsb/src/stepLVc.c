@@ -2,8 +2,11 @@
 #include <math.h>
 #include <stdlib.h>
 #include <R.h>
+#include <Rinternals.h>
 #include <Rmath.h>
+#include <R_ext/Rdynload.h>
 
+// Actual code we want to be able to call from R:
 void stepLV(int *x,double *t0p,double *dtp,double *c)
 {
   double t=*t0p, dt=*dtp, termt=t+dt;
@@ -29,3 +32,23 @@ void stepLV(int *x,double *t0p,double *dtp,double *c)
       x[1]-=1;
   }
 }
+
+// Boilerplate for registering the routine, needed for CRAN...
+
+static R_NativePrimitiveArgType stepLV_t[] = {
+  INTSXP, REALSXP, REALSXP, REALSXP
+};
+
+static const R_CMethodDef cMethods[] = {
+   {"stepLV", (DL_FUNC) &stepLV, 4, stepLV_t},
+   {NULL, NULL, 0, NULL}
+};
+
+void R_init_stepLVc(DllInfo *info)
+{
+   R_registerRoutines(info, cMethods, NULL, NULL, NULL);
+}
+
+// eof
+
+
