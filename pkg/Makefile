@@ -13,8 +13,9 @@ check:
 	R CMD check smfsbSBML
 
 check-cran:
-	R CMD check --as-cran smfsb
-	R CMD check --as-cran smfsbSBML
+	make build
+	R CMD check --as-cran smfsb_$(VERSION).tar.gz
+	R CMD check --as-cran smfsbSBML_$(VERSIONSBML).tar.gz
 
 check-all:
 	R CMD check --as-cran --run-donttest smfsb
