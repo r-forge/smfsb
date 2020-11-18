@@ -7,6 +7,8 @@ require(smfsb)
 sbml2spn = function(filename, verb=FALSE) {
     d = readSBML(filename)
     m = d$getModel()
+    if (is.null(m))
+        stop(paste("Can't parse SBML file:",filename))
     ## Species and initial amounts
     P=list()
     ns = m$getNumSpecies()
