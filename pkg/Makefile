@@ -1,7 +1,7 @@
 # Makefile
 # Makefile for package checking building, installing, uninstalling, etc.
 
-VERSION=1.5
+VERSION=1.6
 VERSIONSBML=0.1
 
 DEFAULT:

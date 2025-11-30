@@ -5,6 +5,6 @@ importFrom("stats", "acf", "dnorm", "rexp", "rgamma", "rnorm", "rpois","runif", 
 export(rfmc,rcfmc,imdeath,rdiff,simpleEuler,gillespie,discretise,gillespied,StepGillespie,
 simTs,simSample,simTimes,StepEulerSPN,StepCLE,StepPTS,StepFRM,StepEuler,stepLVc,StepODE,StepSDE,
 as.timedData,pfMLLik, pfMLLik1, normgibbs, metrop, mcmcSummary, StepGillespie1D, StepGillespie2D, 
-simTs1D, simTs2D, StepCLE1D, StepCLE2D, abcRun, abcSmc, metropolisHastings)
+simTs1D, simTs2D, StepCLE1D, StepCLE2D, StepEuler1D, StepEuler2D, abcRun, abcSmc, metropolisHastings)
 useDynLib(smfsb, .registration = TRUE)
 
